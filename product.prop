@@ -35,6 +35,7 @@ persist.vendor.dpm.nsrm.bkg.evt=3955
 
 # Graphics
 debug.egl.hw=1
+debug.gralloc.enable_fb_ubwc=1
 persist.demo.hdmirotationlock=false
 persist.sys.sf.native_mode=0
 ro.opengles.version=196610
