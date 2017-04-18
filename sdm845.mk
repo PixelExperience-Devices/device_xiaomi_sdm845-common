@@ -11,9 +11,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
-# Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/xiaomi/sdm845-common/sdm845-common-vendor.mk)
-
 include build/make/target/product/iorap_large_memory_config.mk
 
 # Component overrides
@@ -480,3 +477,6 @@ PRODUCT_COPY_FILES += \
 
 # Set boot SPL
 BOOT_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
+
+# Inherit the proprietary files
+$(call inherit-product, vendor/xiaomi/sdm845-common/sdm845-common-vendor.mk)
