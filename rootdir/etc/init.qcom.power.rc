@@ -257,6 +257,10 @@ on enable-low-power
 on property:sys.boot_completed=1
     trigger enable-low-power
 
+    # Enable idle state listener
+    write /sys/class/drm/card0/device/idle_encoder_mask 1
+    write /sys/class/drm/card0/device/idle_timeout_ms 100
+
 on property:init.svc.recovery=running
     trigger enable-low-power
 
