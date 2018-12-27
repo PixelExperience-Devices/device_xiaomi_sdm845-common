@@ -140,6 +140,9 @@ framework/qti-telephony-common.jar
 framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
+# SDM
+lib64/libsdm-disp-apis.so
+
 # Soter
 -app/SoterService/SoterService.apk
 
