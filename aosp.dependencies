@@ -1,9 +1,5 @@
 [
   {
-    "repository": "kernel_xiaomi_sdm845",
-    "target_path": "kernel/xiaomi/sdm845"
-  },
-  {
     "repository" : "vendor_xiaomi",
     "target_path": "vendor/xiaomi"
   },
