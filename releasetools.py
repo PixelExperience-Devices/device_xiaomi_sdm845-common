@@ -25,11 +25,11 @@ def IncrementalOTA_InstallEnd(info):
   return
 
 def FullOTA_Assertions(info):
-  AddModemAssertion(info, info.input_zip)
+  AddBasebandAssertion(info, info.input_zip)
   return
 
 def IncrementalOTA_Assertions(info):
-  AddModemAssertion(info, info.target_zip)
+  AddBasebandAssertion(info, info.target_zip)
   return
 
 def AddImage(info, basename, dest):
@@ -46,13 +46,13 @@ def OTA_InstallEnd(info):
   AddImage(info, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo")
   return
 
-def AddModemAssertion(info, input_zip):
-  android_info = info.input_zip.read("OTA/android-info.txt")
-  m = re.search(r'require\s+version-modem\s*=\s*(.+)', android_info)
+def AddBasebandAssertion(info, input_zip):
+  android_info = input_zip.read("OTA/android-info.txt")
+  m = re.search(r'require\s+version-baseband\s*=\s*(.+)', android_info)
   if m:
     timestamp, firmware_version = m.group(1).rstrip().split(',')
     if ((len(timestamp) and '*' not in timestamp) and \
         (len(firmware_version) and '*' not in firmware_version)):
-      cmd = 'assert(xiaomi.verify_modem("{}") == "1" || abort("ERROR: This package requires firmware from MIUI {} developer build or newer. Please upgrade firmware and retry!"););'
+      cmd = 'assert(xiaomi.verify_baseband("{}") == "1" || abort("ERROR: This package requires firmware from MIUI {} or newer. Please upgrade firmware and retry!"););'
       info.script.AppendExtra(cmd.format(timestamp, firmware_version))
   return
