@@ -110,6 +110,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
+# ThermalController app
+PRODUCT_PACKAGES += \
+    ThermalController
+
 # VNDK-SP
 PRODUCT_PACKAGES += \
     vndk-sp
