@@ -241,7 +241,7 @@ on enable-low-power
 
     rm /data/unencrypted/zram_swap
     write /proc/sys/vm/swappiness 100
-    write /proc/sys/vm/watermark_scale_factor 120
+    write /proc/sys/vm/watermark_scale_factor 1
 
     # Set LMK minfree
     write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,85296,120640"
