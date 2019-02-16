@@ -125,14 +125,6 @@ lib64/vendor.xiaomi.hardware.tidaservice@1.1.so
 lib/vendor.xiaomi.hardware.mtdservice@1.0.so
 lib/vendor.xiaomi.hardware.vsimapp@1.0.so
 
-# Perf
-lib64/vendor.qti.hardware.iop@1.0.so
-lib64/vendor.qti.hardware.iop@2.0.so
-lib64/vendor.qti.hardware.perf@1.0.so
-lib/vendor.qti.hardware.iop@1.0.so
-lib/vendor.qti.hardware.iop@2.0.so
-lib/vendor.qti.hardware.perf@1.0.so
-
 # Power-off charging daemon
 -sbin/charger:sbin/chargeonlymode;rootfs|f048d2cc20783ba1a608b73d440b3053af6ec9fd
 
