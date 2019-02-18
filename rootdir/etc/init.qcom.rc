@@ -36,6 +36,12 @@ on property:init.svc.vendor.cnss_diag=running
 on property:init.svc.vendor.ipacm-diag=running
     stop vendor.ipacm-diag
 
+on property:init.svc.citsensor-hal-1-1=running
+    stop citsensor-hal-1-1
+
+on property:init.svc.vendor.misys=running
+    stop vendor.misys
+
 on property:persist.vendor.sys.ssr.enable_ramdumps=1
     start vendor.ss_ramdump_local
 
