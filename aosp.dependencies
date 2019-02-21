@@ -1,7 +1,8 @@
 [
   {
     "repository" : "vendor_xiaomi",
-    "target_path": "vendor/xiaomi"
+    "target_path": "vendor/xiaomi",
+    "branch": "pie-caf"
   },
   {
     "repository": "LineageOS/android_packages_resources_devicesettings",
