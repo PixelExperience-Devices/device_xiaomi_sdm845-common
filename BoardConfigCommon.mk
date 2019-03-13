@@ -133,5 +133,8 @@ BOARD_VNDK_RUNTIME_DISABLE := true
 BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
+# Telephony
+TARGET_USES_ALTERNATIVE_MANUAL_NETWORK_SELECT := true
+
 # Inherit from the proprietary version
 -include vendor/xiaomi/sdm845-common/BoardConfigVendor.mk
