@@ -12,5 +12,8 @@
 /firmware(/.*)?          u:object_r:firmware_file:s0
 /persist(/.*)?           u:object_r:persist_file:s0
 
+# Fingerprint related nodes
+/sys/devices/platform/soc/soc:fingerprint_goodix/proximity_state       u:object_r:sysfs_fp_proximity:s0
+
 # Power HAL
 /system/lib64/hw/power\.qcom\.so    u:object_r:vendor_file:s0
