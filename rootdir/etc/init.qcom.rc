@@ -42,6 +42,9 @@ on property:init.svc.citsensor-hal-1-1=running
 on property:init.svc.vendor.misys=running
     stop vendor.misys
 
+on property:init.svc.vendor.misys@2.0=running
+    stop vendor.misys@2.0
+
 on property:persist.vendor.sys.ssr.enable_ramdumps=1
     start vendor.ss_ramdump_local
 
