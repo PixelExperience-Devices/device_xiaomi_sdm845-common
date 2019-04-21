@@ -11,7 +11,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.aux.packagelist=com.android.camera,com.google.android.GoogleCamera
+    vendor.camera.aux.packagelist=com.android.camera
 
 # CNE and DPM
 PRODUCT_PROPERTY_OVERRIDES += \
