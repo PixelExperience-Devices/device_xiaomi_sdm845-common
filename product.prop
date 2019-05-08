@@ -23,6 +23,7 @@ persist.data.df.dev_name=rmnet_usb0
 persist.vendor.data.mode=concurrent
 
 # Media
+media.stagefright.thumbnail.prefer_hw_codecs=true
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
 # Netflix
