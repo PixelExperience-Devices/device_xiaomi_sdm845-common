@@ -81,10 +81,6 @@ ro.com.android.dataroaming=true
 ro.telephony.default_network=10,10
 telephony.lteOnCdmaDevice=1
 
-# SSR
-persist.vendor.ssr.enable_ramdumps=0
-persist.vendor.ssr.restart_level=ALL_ENABLE
-
 # SurfaceFlinger
 debug.sf.disable_backpressure=1
 debug.sf.enable_gl_backpressure=1
