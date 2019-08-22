@@ -968,7 +968,6 @@ lib/libwfduibcsink.so
 lib/libwfduibcsinkinterface.so
 lib/libwfduibcsrc.so
 lib/libwfduibcsrcinterface.so
--priv-app/WfdService/WfdService.apk
 vendor/bin/wifidisplayhalservice
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
 vendor/lib64/libwfdhdcpcp.so
@@ -979,3 +978,6 @@ vendor/lib/libwfdhaldsmanager.so
 vendor/lib/libwfdhdcpcp.so
 vendor/lib/libwfdmmservice_proprietary.so
 vendor/lib/libwfdmodulehdcpsession.so
+
+# WiFi Display Service - from stock
+-priv-app/WfdService/WfdService.apk|4194a017df7851b4b50917c086e5c2a3500d9771
