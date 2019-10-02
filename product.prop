@@ -57,6 +57,9 @@ sdm.debug.disable_inline_rotator_secure=1
 # IMS
 persist.vendor.ims.disableUserAgent=0
 
+# IORap
+iorapd.readahead.enable=true
+
 # Media
 media.stagefright.thumbnail.prefer_hw_codecs=true
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
