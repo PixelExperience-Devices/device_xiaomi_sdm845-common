@@ -58,6 +58,9 @@ PRODUCT_COPY_FILES += \
 # Properties
 -include $(LOCAL_PATH)/common-props.mk
 
+# Haters gonna hate...
+PRODUCT_CHARACTERISTICS := nosdcard
+
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
