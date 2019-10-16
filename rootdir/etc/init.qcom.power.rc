@@ -201,8 +201,9 @@ on enable-low-power
     write /sys/class/devfreq/soc:qcom,mincpubw/polling_interval 10
 
     # Set cpuset parameters
-    write /dev/cpuset/background/cpus 0-3
-    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/background/cpus 0-1
+    write /dev/cpuset/system-background/cpus 0-2
+    write /dev/cpuset/restricted/cpus 0-3 
 
     # Turn off scheduler boost at the end
     write /proc/sys/kernel/sched_boost 0
