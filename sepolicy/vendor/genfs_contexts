@@ -1,6 +1,9 @@
 genfscon proc /tp_fw_version       u:object_r:proc_tp:s0
 genfscon proc /tp_lockdown_info    u:object_r:proc_tp:s0
 
+genfscon sysfs /power/rpmh_stats/master_stats         u:object_r:sysfs_rpm:s0
+genfscon sysfs /power/system_sleep/stats              u:object_r:sysfs_system_sleep_stats:s0
+
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/idle_state            u:object_r:sysfs_graphics:s0
 
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-03/c440000.qcom,spmi:qcom,pmi8998@3:qcom,leds@d000/leds/white    u:object_r:sysfs_graphics:s0
