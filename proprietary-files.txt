@@ -457,6 +457,10 @@ vendor/lib/libqti-iopd.so
 vendor/lib/vendor.qti.hardware.iop@1.0.so
 vendor/lib/vendor.qti.hardware.iop@2.0.so
 
+# IPA - from davinci-user 10 QKQ1.190825.002 9.10.9 release-keys
+vendor/etc/init/ipa_fws.rc|509042b86b4953ca1dc1b420942d9ded839ee502
+vendor/etc/init/ipacm-diag.rc|cacc1fce2e7123f6fdcaa408e66c3dfb9870f1bf
+
 # IPA firmware
 vendor/firmware/ipa_fws.b00
 vendor/firmware/ipa_fws.b01
