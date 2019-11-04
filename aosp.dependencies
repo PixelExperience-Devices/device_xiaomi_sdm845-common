@@ -2,13 +2,12 @@
   {
     "repository" : "vendor_xiaomi",
     "target_path": "vendor/xiaomi",
-    "branch": "pie",
-    "remote": "pixel-gitlab"
+    "branch": "ten"
   },
   {
     "repository": "LineageOS/android_packages_resources_devicesettings",
     "target_path": "packages/resources/devicesettings",
-    "branch": "lineage-16.0",
+    "branch": "lineage-17.0",
     "remote": "github"
   }
 ]
