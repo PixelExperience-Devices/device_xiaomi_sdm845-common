@@ -682,7 +682,7 @@ vendor/lib/libqmiservices.so
 etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
 framework/qcrilhook.jar
-framework/qti-telephony-common.jar|42a33afec6fa4c35fcbaddddd938d777
+framework/qti-telephony-common.jar|406fac0e0131ff680c498277ea2073d9
 framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/hw/qcrild
