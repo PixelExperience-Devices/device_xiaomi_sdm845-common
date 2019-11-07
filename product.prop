@@ -4,7 +4,10 @@ ro.config.vc_call_vol_steps=11
 
 # Bluetooth
 persist.vendor.bt.enable.splita2dp=true
+persist.bluetooth.a2dp_offload.disabled=false
+persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
+ro.bluetooth.a2dp_offload.supported=true
 vendor.bluetooth.soc=cherokee
 
 # Camera
