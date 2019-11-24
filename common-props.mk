@@ -57,7 +57,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=1 \
     persist.vendor.dpm.feature=1 \
     persist.vendor.dpm.loglevel=0 \
-    persist.vendor.dpm.nsrm.bkg.evt=3955
+    persist.vendor.dpm.nsrm.bkg.evt=3955 \
+    ro.vendor.use_data_netmgrd=true
 
 # Dalvik heap
 PRODUCT_PROPERTY_OVERRIDES += \
