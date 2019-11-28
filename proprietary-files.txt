@@ -612,7 +612,6 @@ vendor/etc/perf/perf-profile4.conf
 vendor/etc/perf/perf-profile5.conf
 vendor/etc/perf/perf-profile6.conf
 vendor/etc/perf/perfboostsconfig.xml
-vendor/etc/perf/perfconfigstore.xml
 vendor/etc/perf/targetconfig.xml
 vendor/etc/perf/targetresourceconfigs.xml
 vendor/lib/libperfconfig.so
