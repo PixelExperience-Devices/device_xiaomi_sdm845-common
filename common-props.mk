@@ -79,8 +79,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.voice.path.for.pcm.voip=false \
     vendor.audio.safx.pbe.enabled=false \
     vendor.audio.tunnel.encode=false \
+    vendor.audio.usb.disable.sidetone=true \
     vendor.audio.use.sw.alac.decoder=true \
-    vendor.audio.use.sw.ape.decoder=true
+    vendor.audio.use.sw.ape.decoder=true \
+    vendor.audio.volume.headset.gain.depcal=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
