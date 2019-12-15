@@ -68,4 +68,7 @@ if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt
             "${KANG}" --section "${SECTION}"
 fi
 
+patchelf --add-needed "libprocessgroup.so" "${BLOB_ROOT}/vendor/lib/hw/audio.primary.sdm845.so"
+patchelf --add-needed "libprocessgroup.so" "${BLOB_ROOT}/vendor/lib64/hw/audio.primary.sdm845.so"
+
 "${MY_DIR}/setup-makefiles.sh"
