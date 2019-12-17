@@ -17,33 +17,37 @@
 import re
 
 def FullOTA_InstallEnd(info):
-  OTA_InstallEnd(info)
+  input_zip = info.input_zip
+  OTA_InstallEnd(info, input_zip)
   return
 
 def IncrementalOTA_InstallEnd(info):
-  OTA_InstallEnd(info)
+  input_zip = info.target_zip
+  OTA_InstallEnd(info, input_zip)
   return
 
 def FullOTA_Assertions(info):
-  AddBasebandAssertion(info, info.input_zip)
+  input_zip = info.input_zip
+  AddBasebandAssertion(info, input_zip)
   return
 
 def IncrementalOTA_Assertions(info):
-  AddBasebandAssertion(info, info.target_zip)
+  input_zip = info.target_zip
+  AddBasebandAssertion(info, input_zip)
   return
 
-def AddImage(info, basename, dest):
+def AddImage(info, input_zip, basename, dest):
   path = "IMAGES/" + basename
-  if path not in info.input_zip.namelist():
+  if path not in input_zip.namelist():
     return
 
-  data = info.input_zip.read(path)
+  data = input_zip.read(path)
   common.ZipWriteStr(info.output_zip, basename, data)
   info.script.Print("Patching {} image unconditionally...".format(dest.split('/')[-1]))
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
 
-def OTA_InstallEnd(info):
-  AddImage(info, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo")
+def OTA_InstallEnd(info, input_zip):
+  AddImage(info, input_zip, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo")
   return
 
 def AddBasebandAssertion(info, input_zip):
