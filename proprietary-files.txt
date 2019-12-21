@@ -22,18 +22,15 @@ vendor/lib/rfsa/adsp/libsns_device_mode_skel.so
 vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
 
 # Audio
-vendor/lib64/hw/audio.primary.sdm845.so|fd66c3a0ac1b9c5e7f198f5b4f3f383e83538546
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbrtac.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
 vendor/lib64/libaudioalsa.so
-vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libaudioparsers.so
 vendor/lib64/libaudioroute_ext.so
 vendor/lib64/libcsd-client.so
 vendor/lib64/libqtigef.so
-vendor/lib/hw/audio.primary.sdm845.so|581ddd7721437c283cad30c289e0a127e31025f9
 vendor/lib/vndk/libxlog.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbrtac.so
@@ -41,11 +38,18 @@ vendor/lib/libadiertac.so
 vendor/lib/libadm.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudioalsa.so
-vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioparsers.so
 vendor/lib/libaudioroute_ext.so
 vendor/lib/libcsd-client.so
 vendor/lib/libqtigef.so
+
+# Audio - hardware
+vendor/lib/hw/audio.primary.sdm845.so|fd66c3a0ac1b9c5e7f198f5b4f3f383e83538546
+vendor/lib/libaudio_log_utils.so
+vendor/lib/libtinycompress_vendor.so
+vendor/lib64/hw/audio.primary.sdm845.so|581ddd7721437c283cad30c289e0a127e31025f9
+vendor/lib64/libaudio_log_utils.so
+vendor/lib64/libtinycompress_vendor.so
 
 # Audio FX modules
 etc/permissions/audiosphere.xml
