@@ -921,6 +921,8 @@ lib/libwfduibcsinkinterface.so
 lib/libwfduibcsink.so
 lib/libwfduibcsrcinterface.so
 lib/libwfduibcsrc.so
+lib64/libmmrtpdecoder.so
+lib64/libmmrtpencoder.so
 lib64/libwfdclient.so
 lib64/libwfdcommonutils.so
 lib64/libwfdconfigutils.so
