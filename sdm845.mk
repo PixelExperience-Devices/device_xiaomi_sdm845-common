@@ -59,7 +59,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
 # Properties
--include $(LOCAL_PATH)/common-props.mk
+-include $(LOCAL_PATH)/vendor_prop.mk
 
 # Haters gonna hate...
 PRODUCT_CHARACTERISTICS := nosdcard
