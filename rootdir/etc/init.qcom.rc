@@ -80,6 +80,9 @@ on init
     setprop vendor.thermal.hw_mode -prod
     setprop vendor.thermal.config "thermal_info_config.json"
 
+    # Freezer setup
+    write /dev/freezer/frozen/freezer.killable 1
+
 on fs
     wait /dev/block/platform/soc/1d84000.ufshc
     symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
