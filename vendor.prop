@@ -126,3 +126,6 @@ ro.vendor.audio.soundtrigger.cnn.adsp.level=27
 ro.vendor.audio.soundtrigger.vop.adsp.level=10
 ro.vendor.audio.soundtrigger.training.level=60
 ro.vendor.audio.soundtrigger.hist.duration=1500
+
+# USB
+vendor.usb.diag.func.name=diag
