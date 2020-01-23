@@ -3,11 +3,5 @@
     "repository" : "vendor_xiaomi",
     "target_path": "vendor/xiaomi",
     "branch": "ten"
-  },
-  {
-    "repository": "LineageOS/android_packages_resources_devicesettings",
-    "target_path": "packages/resources/devicesettings",
-    "branch": "lineage-17.0",
-    "remote": "github"
   }
 ]
