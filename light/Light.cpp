@@ -119,11 +119,11 @@ void Light::handleNotification(const LightState& state, size_t index) {
 
     auto getScaledDutyPercent = [](int brightness) -> std::string {
         std::string output;
-        for (int i = 0; i <= kRampSteps; i++) {
+        for (int i = 0; i < kRampSteps; i++) {
             if (i != 0) {
                 output += ",";
             }
-            output += std::to_string(i * 100 * brightness / (kDefaultMaxBrightness * kRampSteps));
+            output += std::to_string(i * 300 * brightness / (kDefaultMaxBrightness * kRampSteps));
         }
         return output;
     };
@@ -133,9 +133,10 @@ void Light::handleNotification(const LightState& state, size_t index) {
 
     if (onMs > 0 && offMs > 0) {
         uint32_t pauseLo, pauseHi, stepDuration;
-        if (kRampMaxStepDurationMs * kRampSteps > onMs) {
+        if (kRampMaxStepDurationMs * kRampSteps >= onMs) {
             stepDuration = onMs / kRampSteps;
             pauseHi = 0;
+            pauseLo = offMs;
         } else {
             stepDuration = kRampMaxStepDurationMs;
             pauseHi = onMs - kRampSteps * stepDuration;
