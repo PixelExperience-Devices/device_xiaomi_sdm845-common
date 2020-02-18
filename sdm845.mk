@@ -57,9 +57,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
-# Properties
--include $(LOCAL_PATH)/common-props.mk
-
 # Haters gonna hate...
 PRODUCT_CHARACTERISTICS := nosdcard
 
