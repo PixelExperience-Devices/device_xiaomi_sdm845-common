@@ -17,19 +17,20 @@
 #define ATRACE_TAG (ATRACE_TAG_POWER | ATRACE_TAG_HAL)
 #define LOG_TAG "android.hardware.power@1.3-service.xiaomi-libperfmgr"
 
+#include "Power.h"
+
+#include <mutex>
+
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 #include <android-base/stringprintf.h>
 #include <android-base/strings.h>
 
-#include <mutex>
-
 #include <utils/Log.h>
 #include <utils/Trace.h>
 
-#include "Power.h"
-#include "display-helper.h"
+#include "disp-power/display-helper.h"
 #include <linux/input.h>
 
 constexpr int kWakeupModeOff = 4;
@@ -368,13 +369,13 @@ Return<void> Power::debug(const hidl_handle &handle, const hidl_vec<hidl_string>
         int fd = handle->data[0];
 
         std::string buf(android::base::StringPrintf(
-            "HintManager Running: %s\n"
-            "VRMode: %s\n"
-            "CameraStreamingMode: %s\n"
-            "SustainedPerformanceMode: %s\n",
-            boolToString(mHintManager->IsRunning()), boolToString(mVRModeOn),
-            boolToString(mCameraStreamingMode),
-            boolToString(mSustainedPerfModeOn)));
+                "HintManager Running: %s\n"
+                "VRMode: %s\n"
+                "CameraStreamingMode: %s\n"
+                "SustainedPerformanceMode: %s\n",
+                boolToString(mHintManager->IsRunning()), boolToString(mVRModeOn),
+                boolToString(mCameraStreamingMode),
+                boolToString(mSustainedPerfModeOn)));
         // Dump nodes through libperfmgr
         mHintManager->DumpToFd(fd);
         if (!android::base::WriteStringToFd(buf, fd)) {
