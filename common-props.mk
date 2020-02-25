@@ -8,9 +8,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.fluence.speaker=true \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
-    audio.offload.video=true \
     persist.vendor.audio.ras.enabled=false \
     ro.af.client_heap_size_kbyte=7168 \
+    ro.config.media_vol_steps=25 \
+    ro.config.vc_call_vol_steps=11 \
     ro.vendor.audio.sdk.fluencetype=fluence \
     ro.vendor.audio.sdk.ssr=false \
     ro.vendor.audio.soundfx.usb=true \
@@ -85,20 +86,41 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.bluetooth.a2dp_offload.disabled=false \
+    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
     persist.vendor.bt.aac_frm_ctl.enabled=true \
+    persist.vendor.bt.enable.splita2dp=true \
     persist.vendor.qcom.bluetooth.enable.splita2dp=true \
     persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
+    ro.bluetooth.a2dp_offload.supported=true \
+    vendor.bluetooth.soc=cherokee \
     vendor.qcom.bluetooth.soc=cherokee
+
+# Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera.disable_zsl_mode=true \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
 # Ccodec
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank.sw-audio=1 \
     debug.stagefright.omx_default_rank=0
 
+# CNE and DPM
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.cne.feature=1 \
+    persist.vendor.dpm.feature=1 \
+    persist.vendor.dpm.loglevel=0 \
+    persist.vendor.dpm.nsrm.bkg.evt=3955 \
+    ro.vendor.use_data_netmgrd=true
+
 # Data modules
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.data.profile_update=true
+    persist.data.df.dev_name=rmnet_usb0 \
+    persist.vendor.data.profile_update=true \
+    persist.vendor.data.mode=concurrent \
+    ro.vendor.use_data_netmgrd=true
 
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -115,7 +137,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.frp.pst=/dev/block/bootdevice/by-name/frp
+    ro.frp.pst=/dev/block/bootdevice/by-name/frp \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -151,9 +173,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.audio.soundtrigger.training.level=60 \
     ro.vendor.audio.soundtrigger.hist.duration=1500
 
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio.offload.video=true \
+    media.stagefright.thumbnail.prefer_hw_codecs=true \
+    media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bservice_enable=true
+
+# Netflix custom property
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.netflix.bsp_rev=Q845-05000-1
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
