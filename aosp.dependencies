@@ -5,8 +5,8 @@
     "branch": "ten"
   },
   {
-    "repository": "vendor_xiaomi_firmware",
-    "target_path": "vendor/xiaomi/firmware",
+    "repository": "vendor_xiaomi-firmware",
+    "target_path": "vendor/xiaomi-firmware",
     "branch": "ten",
     "remote": "pixel-gitlab"
   }
