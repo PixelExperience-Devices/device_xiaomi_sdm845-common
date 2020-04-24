@@ -393,6 +393,7 @@ PRODUCT_PACKAGES += \
     wificond \
     wifilogd \
     wpa_cli \
+    WifiOverlay \
     wpa_supplicant \
     wpa_supplicant.conf \
     vendor.qti.hardware.wifi.hostapd@1.1.vendor \
