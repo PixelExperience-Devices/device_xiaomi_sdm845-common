@@ -13,9 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 cc_binary {
-    name: "android.hardware.power.stats@1.0-service.pixel",
+    name: "android.hardware.power.stats@1.0-service.xiaomi",
     relative_install_path: "hw",
-    init_rc: ["android.hardware.power.stats@1.0-service.pixel.rc"],
+    init_rc: ["android.hardware.power.stats@1.0-service.xiaomi.rc"],
     srcs: ["service.cpp"],
     cflags: [
         "-Wall",
