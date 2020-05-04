@@ -77,8 +77,8 @@ int main(int /* argc */, char ** /* argv */) {
     uint32_t apssId = service->addPowerEntity("APSS", PowerEntityType::SUBSYSTEM);
     rpmSdp->addEntity(apssId, PowerEntityConfig("APSS", rpmStateResidencyConfigs));
 
-    uint32_t mpssId = service->addPowerEntity("MPSS", PowerEntityType::SUBSYSTEM);
-    rpmSdp->addEntity(mpssId, PowerEntityConfig("MPSS", rpmStateResidencyConfigs));
+    /*uint32_t mpssId = service->addPowerEntity("MPSS", PowerEntityType::SUBSYSTEM);
+    rpmSdp->addEntity(mpssId, PowerEntityConfig("MPSS", rpmStateResidencyConfigs));*/
 
     uint32_t adspId = service->addPowerEntity("ADSP", PowerEntityType::SUBSYSTEM);
     rpmSdp->addEntity(adspId, PowerEntityConfig("ADSP", rpmStateResidencyConfigs));
