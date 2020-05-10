@@ -34,7 +34,7 @@ using android::hardware::power::V1_3::IPower;
 using android::hardware::power::V1_3::implementation::Power;
 
 int main(int /* argc */, char ** /* argv */) {
-    ALOGI("Power HAL Service 1.3 for Pixel is starting.");
+    ALOGI("Power HAL Service 1.3 for Xiaomi SDM845 is starting.");
 
     android::sp<IPower> service = new Power();
     if (service == nullptr) {
