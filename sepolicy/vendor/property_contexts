@@ -32,4 +32,4 @@ vendor.powerhal.lpm        u:object_r:vendor_power_prop:s0
 vendor.powerhal.init       u:object_r:vendor_power_prop:s0
 
 # Thermal
-sys.thermal.               u:object_r:thermal_engine_prop:s0
+persist.sys.thermal.       u:object_r:thermal_engine_prop:s0
