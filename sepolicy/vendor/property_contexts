@@ -31,5 +31,8 @@ vendor.powerhal.audio      u:object_r:vendor_power_prop:s0
 vendor.powerhal.lpm        u:object_r:vendor_power_prop:s0
 vendor.powerhal.init       u:object_r:vendor_power_prop:s0
 
+# Sensors
+persist.sensor.sardisable  u:object_r:sensors_prop:s0
+
 # Thermal
 persist.sys.thermal.       u:object_r:thermal_engine_prop:s0
