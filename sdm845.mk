@@ -164,8 +164,8 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libtinyxml \
     libvulkan \
-    vendor.display.config@1.7 \
-    vendor.display.config@1.7.vendor \
+    vendor.display.config@1.9 \
+    vendor.display.config@1.9.vendor \
     memtrack.sdm845 \
     vendor.qti.hardware.display.allocator@1.0-service
 
