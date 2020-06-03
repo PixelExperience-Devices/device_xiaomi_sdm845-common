@@ -146,7 +146,7 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2020-03-01
+VENDOR_SECURITY_PATCH := 2020-05-01
 
 # Sepolicy
 include device/qcom/sepolicy/sepolicy.mk
