@@ -290,6 +290,9 @@ on boot
     mkdir /data/vendor/sensors
     chown system system /data/vendor/sensors
 
+    # Default enable uicc_se
+    setprop persist.vendor.radio.uicc_se_enabled true
+
 # MSM specific files that need to be created on /data
 on post-fs-data
     mkdir /data/tombstones 0771 system system
