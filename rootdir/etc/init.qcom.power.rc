@@ -81,9 +81,6 @@ on boot
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
 
-    #Enable suspend to idle mode to reduce latency during suspend/resume
-    write /sys/power/mem_sleep "s2idle"
-
 on property:init.svc.vendor.charger=running
     setprop persist.sys.usb.config mass_storage
     load_system_props
