@@ -1,6 +1,9 @@
 # Audio devices
 /dev/elliptic(.*)?                            u:object_r:sound_device:s0
 
+# Block IO
+/dev/blkio(/.*)?                              u:object_r:blkio:s0
+
 # Camera
 /(vendor|system/vendor)/bin/remosaic_daemon   u:object_r:remosaic_daemon_exec:s0
 
