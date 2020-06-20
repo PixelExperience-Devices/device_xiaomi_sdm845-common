@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,24 @@
  * limitations under the License.
  */
 
-#ifndef POWER_LIBPERFMGR_DISPLAY_HELPER_H_
-#define POWER_LIBPERFMGR_DISPLAY_HELPER_H_
+#pragma once
 
-enum display_lpm_state {
-    DISPLAY_LPM_OFF = 0,
-    DISPLAY_LPM_ON,
-    DISPLAY_LPM_UNKNOWN,
+#include <android-base/unique_fd.h>
+
+#include <string_view>
+
+class DisplayLowPower {
+  public:
+    DisplayLowPower();
+    ~DisplayLowPower() {}
+    void Init();
+    void SetDisplayLowPower(bool enable);
+
+  private:
+    void ConnectPpsDaemon();
+    int SendPpsCommand(const std::string_view cmd);
+    void SetFoss(bool enable);
+
+    android::base::unique_fd mPpsSocket;
+    bool mFossStatus;
 };
-
-void set_display_lpm(int enable);
-
-#endif  // POWER_LIBPERFMGR_DISPLAY_HELPER_H_

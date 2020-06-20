@@ -30,7 +30,7 @@
 #include <utils/Log.h>
 #include <utils/Trace.h>
 
-#include "disp-power/display-helper.h"
+#include "disp-power/DisplayLowPower.h"
 
 namespace aidl {
 namespace google {
@@ -43,8 +43,9 @@ constexpr char kPowerHalStateProp[] = "vendor.powerhal.state";
 constexpr char kPowerHalAudioProp[] = "vendor.powerhal.audio";
 constexpr char kPowerHalRenderingProp[] = "vendor.powerhal.rendering";
 
-Power::Power(std::shared_ptr<HintManager> hm)
+Power::Power(std::shared_ptr<HintManager> hm, std::shared_ptr<DisplayLowPower> dlpw)
     : mHintManager(hm),
+      mDisplayLowPower(dlpw),
       mInteractionHandler(nullptr),
       mVRModeOn(false),
       mSustainedPerfModeOn(false) {
@@ -90,13 +91,10 @@ ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
     ATRACE_INT(toString(type).c_str(), enabled);
     switch (type) {
         case Mode::LOW_POWER:
+            mDisplayLowPower->SetDisplayLowPower(enabled);
             if (enabled) {
-                // Device in battery saver mode, enable display low power mode
-                set_display_lpm(true);
                 mHintManager->DoHint(toString(type));
             } else {
-                // Device exiting battery saver mode, disable display low power mode
-                set_display_lpm(false);
                 mHintManager->EndHint(toString(type));
             }
             break;

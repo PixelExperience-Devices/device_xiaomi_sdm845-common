@@ -17,7 +17,7 @@ cc_library {
     name: "libdisppower-xiaomi",
     proprietary: true,
     srcs: [
-        "disp-power/display-helper.cpp",
+        "disp-power/DisplayLowPower.cpp",
         "disp-power/InteractionHandler.cpp",
     ],
      shared_libs: [
