@@ -202,25 +202,27 @@ vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
 -vendor/lib64/libplatformconfig.so
 
-# Display (HDR)
+# Display (HDR) - from crosshatch - RPB1.200504.020
 vendor/lib/libhdr_tm.so|6ca79b7a868fe799d117924ce083e9106d365b0a
 vendor/lib64/libhdr_tm.so|3b711a1e7f9548a5251e07cd79172ff1a2417a91
 
 # Display (SDM)
-vendor/lib/libqseed3.so|f9b73bfdbeb0021e895ddabc40da42a07f0a1f8f
 vendor/lib/libsdedrm.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
 vendor/lib/libsdm-disp-vndapis.so
 vendor/lib/libsdmextension.so
 vendor/lib/libtinyxml2_1.so
-vendor/lib64/libqseed3.so|c71af9ecfab94168b0f9e913d97f7d6209d12bc5
 vendor/lib64/libsdedrm.so
 vendor/lib64/libsdm-color.so
 vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdm-disp-vndapis.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
+
+# Display (SDM) - from crosshatch - RPB1.200504.020
+vendor/lib/libqseed3.so|f9b73bfdbeb0021e895ddabc40da42a07f0a1f8f
+vendor/lib64/libqseed3.so|c71af9ecfab94168b0f9e913d97f7d6209d12bc5
 
 # Display postprocessing
 vendor/bin/hw/vendor.display.color@1.0-service
@@ -322,7 +324,7 @@ vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# Graphics (Adreno)
+# Graphics (Adreno) - from crosshatch - RPB1.200504.020	
 vendor/lib/egl/eglSubDriverAndroid.so|83d8a66c6761b33b943b3170a0cf02a83519cea8
 vendor/lib/egl/libEGL_adreno.so|cb10f093858068f074ba8d58939e3828574caabe
 vendor/lib/egl/libGLESv1_CM_adreno.so|8f020e1eda185c48e0086757e98e6b75bb6c5327
@@ -371,7 +373,7 @@ vendor/firmware/a630_zap.b02
 vendor/firmware/a630_zap.elf
 vendor/firmware/a630_zap.mdt
 
-# Graphics (Vulkan)
+# Graphics (Vulkan) - from crosshatch - RPB1.200504.020
 vendor/lib/hw/vulkan.sdm845.so|f481d320d745d5f3faeee2427c572d2d455fb61f
 vendor/lib64/hw/vulkan.sdm845.so|c615fa02ce989b032cd3a300a2268729e2d44a37
 
@@ -831,7 +833,6 @@ vendor/lib/rfsa/adsp/libfastcvdsp_skel.so
 vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so
 vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so
 vendor/lib/rfsa/adsp/libscveT2T_skel.so
-vendor/lib/libfastcvopt.so|8fa96f9e9ffbfd9c3bd36e74760b16452bb24235
 vendor/lib/libfastcvdsp_stub.so
 vendor/lib/libscveBlobDescriptor.so
 vendor/lib/libscveBlobDescriptor_stub.so
@@ -844,6 +845,9 @@ vendor/lib/libscveObjectTracker_stub.so
 vendor/lib/libscvePanorama.so
 vendor/lib/libscvePanorama_lite.so
 vendor/lib/libscveScan3D.so
+
+# Snapdragon Computer Vision Engine - from crosshatch - RPB1.200504.020
+vendor/lib/libfastcvopt.so|8fa96f9e9ffbfd9c3bd36e74760b16452bb24235
 
 # Soter
 -vendor/app/SoterService/SoterService.apk
