@@ -1,8 +1,9 @@
 [
   {
-    "repository" : "vendor_xiaomi",
-    "target_path": "vendor/xiaomi",
-    "branch": "ten"
+    "repository" : "vendor_xiaomi_sdm845-common",
+    "target_path": "vendor/xiaomi/sdm845-common",
+    "branch": "ten",
+    "remote": "pixel-devices-bitbucket"
   },
   {
     "repository": "vendor_xiaomi-firmware",
