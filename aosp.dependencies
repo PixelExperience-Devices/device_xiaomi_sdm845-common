@@ -9,7 +9,7 @@
     "repository": "vendor_xiaomi-firmware",
     "target_path": "vendor/xiaomi-firmware",
     "branch": "ten",
-    "remote": "pixel-gitlab"
+    "remote": "pixel-devices-bitbucket"
   },
   {
     "repository":"LineageOS/android_hardware_xiaomi",
