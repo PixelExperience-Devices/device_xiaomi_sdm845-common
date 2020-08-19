@@ -1,10 +1,23 @@
-allow thermal-engine thermal_data_file:dir rw_dir_perms;
-allow thermal-engine thermal_data_file:file create_file_perms;
+allow thermal-engine self:capability2 block_suspend;
 
-allow thermal-engine self:capability { chown fowner };
-allow thermal-engine sysfs_devfreq:dir r_dir_perms;
+# to read /sys/devices
+allow thermal-engine sysfs:dir r_dir_perms;
 
-set_prop(thermal-engine, thermal_engine_prop)
+allow thermal-engine sysfs_msm_subsys:dir r_dir_perms;
+allow thermal-engine sysfs_msm_subsys:file rw_file_perms;
+allow thermal-engine sysfs_socinfo:dir search;
+allow thermal-engine sysfs_socinfo:file r_file_perms;
+allow thermal-engine sysfs_uio_file:dir search;
+allow thermal-engine sysfs_uio_file:file r_file_perms;
 
-dontaudit thermal-engine sysfs:dir read;
-dontaudit thermal-engine self:capability dac_override;
+allow thermal-engine audio_device:chr_file rw_file_perms;
+
+r_dir_file(thermal-engine, sysfs_msm_subsys)
+r_dir_file(thermal-engine, sysfs_batteryinfo)
+
+# reboot/shutdown for thermal limits exceeded
+set_prop(thermal-engine, powerctl_prop)
+
+allow thermal-engine self:global_capability2_class_set wake_alarm;
+
+dontaudit thermal-engine kernel:system module_request;
