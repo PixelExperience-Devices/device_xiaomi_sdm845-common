@@ -846,9 +846,9 @@ vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
 # Thermal engine - from blueline - QP1A.191005.007
-vendor/bin/thermal-engine
-vendor/lib64/libthermalclient.so
-vendor/lib/libthermalclient.so
+vendor/bin/thermal-engine|90aa285b330d942d35b49863271211ae941d09bb
+vendor/lib64/libthermalclient.so|990bb81bda31c5b64ee3aaf8d809d85b3dee4a22
+vendor/lib/libthermalclient.so|3529b3437d25a604902e0434e59f3c3bf3494fb5
 
 # Time services
 -vendor/app/TimeService/TimeService.apk;:timeservice_app_cert
