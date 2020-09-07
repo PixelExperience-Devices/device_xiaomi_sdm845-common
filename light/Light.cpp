@@ -54,6 +54,11 @@ static constexpr int kDefaultMaxBrightness = 255;
 static constexpr int kRampSteps = 50;
 static constexpr int kRampMaxStepDurationMs = 5;
 
+static constexpr float R = 0.5f;
+static constexpr float A = 0.17883277f;
+static constexpr float B = 0.28466892f;
+static constexpr float C = 0.55991073f;
+
 static uint32_t getBrightness(const LightState& state) {
     uint32_t alpha, red, green, blue;
 
@@ -82,6 +87,29 @@ static uint32_t rgbToBrightness(const LightState& state) {
             + (29 * (color & 0xff))) >> 8;
 }
 
+static uint32_t convertGammaToLinear(uint32_t gamma, int maxBrightness) {
+    float hlg;
+    uint32_t ret;
+
+    float norm = (float)gamma / kDefaultMaxBrightness;
+
+    if (norm <= R) {
+        hlg = pow(norm/R,2);
+    } else {
+        hlg = exp((norm - C) / A) + B;
+    }
+
+    /* HLG normalizes to [0, 12] */
+    ret = round(hlg * maxBrightness / 12);
+    /* prevent users from completely turning off screen */
+    if (ret < 1)
+        ret = 1;
+    if (ret > maxBrightness)
+        ret = maxBrightness;
+
+    return ret;
+}
+
 Light::Light() {
     mLights.emplace(Type::ATTENTION, std::bind(&Light::handleNotification, this, std::placeholders::_1, 0));
     mLights.emplace(Type::BACKLIGHT, std::bind(&Light::handleBacklight, this, std::placeholders::_1));
@@ -95,7 +123,7 @@ void Light::handleBacklight(const LightState& state) {
         maxBrightness = kDefaultMaxBrightness;
     }
     uint32_t sentBrightness = rgbToBrightness(state);
-    uint32_t brightness = sentBrightness * maxBrightness / kDefaultMaxBrightness;
+    uint32_t brightness = convertGammaToLinear(sentBrightness, maxBrightness);
     LOG(DEBUG) << "Writing backlight brightness " << brightness
                << " (orig " << sentBrightness << ")";
     set("/sys/class/backlight/panel0-backlight/brightness", brightness);
