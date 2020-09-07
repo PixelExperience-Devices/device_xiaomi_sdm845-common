@@ -22,6 +22,7 @@
 #include <hidl/Status.h>
 #include <unordered_map>
 #include <mutex>
+#include <math.h>
 
 namespace android {
 namespace hardware {
