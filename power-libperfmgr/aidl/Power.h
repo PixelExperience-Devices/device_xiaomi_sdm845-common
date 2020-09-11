@@ -30,7 +30,7 @@ namespace android {
 namespace hardware {
 namespace power {
 namespace impl {
-namespace pixel {
+namespace xiaomi {
 
 using ::InteractionHandler;
 using ::android::perfmgr::HintManager;
@@ -52,7 +52,7 @@ class Power : public BnPower {
     std::atomic<bool> mReady;
 };
 
-}  // namespace pixel
+}  // namespace xiaomi 
 }  // namespace impl
 }  // namespace power
 }  // namespace hardware
