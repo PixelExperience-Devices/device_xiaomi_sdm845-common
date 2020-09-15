@@ -21,6 +21,7 @@
 #include <android-base/logging.h>
 #include <android-base/stringprintf.h>
 #include <fstream>
+#include <cutils/properties.h>
 
 namespace android {
 namespace hardware {
@@ -122,8 +123,9 @@ void Light::handleBacklight(const LightState& state) {
     if (maxBrightness < 0) {
         maxBrightness = kDefaultMaxBrightness;
     }
+    bool usingLinearSlider = property_get_bool("ro.light.linear_brightness_slider.enabled", false);
     uint32_t sentBrightness = rgbToBrightness(state);
-    uint32_t brightness = convertGammaToLinear(sentBrightness, maxBrightness);
+    uint32_t brightness = usingLinearSlider ? convertGammaToLinear(sentBrightness, maxBrightness) : sentBrightness * maxBrightness / kDefaultMaxBrightness;
     LOG(DEBUG) << "Writing backlight brightness " << brightness
                << " (orig " << sentBrightness << ")";
     set("/sys/class/backlight/panel0-backlight/brightness", brightness);
