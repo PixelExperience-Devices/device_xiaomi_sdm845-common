@@ -851,7 +851,7 @@ vendor/lib64/libthermalclient.so|990bb81bda31c5b64ee3aaf8d809d85b3dee4a22
 vendor/lib/libthermalclient.so|3529b3437d25a604902e0434e59f3c3bf3494fb5
 
 # Time services
--vendor/app/TimeService/TimeService.apk;:timeservice_app_cert
+-vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
