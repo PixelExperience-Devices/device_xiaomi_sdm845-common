@@ -15,6 +15,9 @@ ro.bluetooth.a2dp_offload.supported=true
 ro.bluetooth.library_name=libbluetooth_qti.so
 vendor.bluetooth.soc=cherokee
 
+# BPF
+ro.kernel.ebpf.supported=true
+
 # Camera
 camera.disable_zsl_mode=true
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,com.motorola.faceunlock
