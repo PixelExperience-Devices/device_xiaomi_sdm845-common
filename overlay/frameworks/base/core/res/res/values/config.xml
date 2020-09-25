@@ -380,4 +380,13 @@
     <!-- Default value for LED off time when the battery is low on charge in miliseconds -->
     <integer name="config_notificationsBatteryLedOff">509</integer>
 
+    <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
+         when registering authenticators with BiometricService. Format must be ID:Modality:Strength,
+         where: IDs are unique per device, Modality as defined in BiometricAuthenticator.java,
+         and Strength as defined in Authenticators.java
+         Authenticators.java: TYPE_FINGERPRINT = 1 << 1; for modality-->
+    <string-array name="config_biometric_sensors" translatable="false" >
+        <item>0:2:15</item>
+    </string-array>
+
 </resources>
