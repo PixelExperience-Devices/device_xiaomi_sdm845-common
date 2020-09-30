@@ -198,9 +198,9 @@ vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
 -vendor/lib64/libplatformconfig.so
 
-# Display (HDR) - from crosshatch - RPB1.200504.020
-vendor/lib/libhdr_tm.so|6ca79b7a868fe799d117924ce083e9106d365b0a
-vendor/lib64/libhdr_tm.so|3b711a1e7f9548a5251e07cd79172ff1a2417a91
+# Display (HDR) - from crosshatch - RP1A.200720.009
+vendor/lib/libhdr_tm.so|edfa2140a462a9da647fcd9fffc742688dd37b1e
+vendor/lib64/libhdr_tm.so|bd82eb65a5f7905e7a3b7c3a8770a0df2b718068
 
 # Display (SDM)
 vendor/lib/libsdm-color.so
@@ -218,9 +218,9 @@ vendor/lib64/libtinyxml2_1.so
 vendor/lib/libsdedrm.so|ac6a187f05bf8d78ae38cf5e337c7f0959ebc09c
 vendor/lib64/libsdedrm.so|36eddd34e776fbf7512dbd0afc764fcffc745a39
 
-# Display (SDM) - from crosshatch - RPB1.200504.020
-vendor/lib/libqseed3.so|f9b73bfdbeb0021e895ddabc40da42a07f0a1f8f
-vendor/lib64/libqseed3.so|c71af9ecfab94168b0f9e913d97f7d6209d12bc5
+# Display (SDM) - from crosshatch - RP1A.200720.009
+vendor/lib/libqseed3.so|d2766f857a1398681ebf72ec7e3039419ef25aa0
+vendor/lib64/libqseed3.so|1dc643f5af88cf61332c18f0f63c914070c99a09
 
 # Display postprocessing
 vendor/bin/hw/vendor.display.color@1.0-service
@@ -322,45 +322,45 @@ vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# Graphics (Adreno) - from crosshatch - RPB1.200504.020	
-vendor/lib/egl/eglSubDriverAndroid.so|83d8a66c6761b33b943b3170a0cf02a83519cea8
-vendor/lib/egl/libEGL_adreno.so|cb10f093858068f074ba8d58939e3828574caabe
-vendor/lib/egl/libGLESv1_CM_adreno.so|8f020e1eda185c48e0086757e98e6b75bb6c5327
-vendor/lib/egl/libGLESv2_adreno.so|93fb6a3f7afb15c308d8bab4553caf3a1867bcd2
-vendor/lib/egl/libQTapGLES.so|e5cf7e8f4015f11cb0292cfa4e02d6c6a32f41c7
-vendor/lib/egl/libq3dtools_adreno.so|92d8ea8797f39677bebe4a8681b734d040b1e4ba
-vendor/lib/egl/libq3dtools_esx.so|f42766eabb42b6eb19a6880c38b22b7b98658bef
-vendor/lib/libC2D2.so|ec0270d8f2ed42093a1baaff7d71ecc2ffaa480c
-vendor/lib/libCB.so|2b048f2fd5a8d8cee23fc48707dae9a1071c11fe
+# Graphics (Adreno) - from crosshatch - RP1A.200720.009
+vendor/lib/egl/eglSubDriverAndroid.so|407792389fc6a0a3ac49ebe04eca39eebc925a4e
+vendor/lib/egl/libEGL_adreno.so|f155e95bd1cafcf723acd4e99e629199b3676f60
+vendor/lib/egl/libGLESv1_CM_adreno.so|8bc10214965285200017fbf92baf94cb781ff194
+vendor/lib/egl/libGLESv2_adreno.so|dff12994675e6537c26382d57b85b7d046af1768
+vendor/lib/egl/libQTapGLES.so|e6f9f4a033599868077db669495cb7aa48b47073
+vendor/lib/egl/libq3dtools_adreno.so|4a0efbaa9b10f71f64346b4a3741af997ab975d1
+vendor/lib/egl/libq3dtools_esx.so|782f1c28074c9a11350d07468a42fe9f7eaef3eb
+vendor/lib/libC2D2.so|f0e4fb06380a8f3fea5d55a5671e9e95b74a9ead
+vendor/lib/libCB.so|0ffbe69f0984ab20fbb89ac386a0dcdb9428f5cd
 vendor/lib/libOpenCL.so|d1699a590a52b11c469adcf66c1f1e9e66c7d739
 vendor/lib/libRSDriver_adreno.so|730089bfdb2749669d63fce8d56323957d5ecefa
-vendor/lib/libadreno_utils.so|07c63f4c6a9486c0c21f8b26f91626b991956a0f
+vendor/lib/libadreno_utils.so|59c4de7b3ab890a9237b5fc4ac5b74e55de70ef9
 vendor/lib/libbccQTI.so|d634a5db3ce03138d1d611ba34558a875d610e49
-vendor/lib/libc2d30_bltlib.so|df41eae4aef459ade3423b974f0da1ec423217fe
-vendor/lib/libgsl.so|dc7e7180e3623a53d7cb0a465d5bac7a5583b1c7
-vendor/lib/libllvm-glnext.so|8c6b7933b46f19b8921019957e00ce5bf3001b8d
-vendor/lib/libllvm-qcom.so|d57a6ee71d9afcd0fda06781ebbe2e88140a1488
-vendor/lib/librs_adreno.so|f92b63f708f61d1d9c99c98d29e24d252fc15b4d
-vendor/lib/librs_adreno_sha1.so|9e5bdde229c26be1bea00a0c9b3ca65fcda91d58
-vendor/lib64/egl/eglSubDriverAndroid.so|6ab216e08ec6d792ad46b8b1e7729fee004d16a0
-vendor/lib64/egl/libEGL_adreno.so|65633b94bed9e325bb7504f3030e7ce9f0ae50d1
-vendor/lib64/egl/libGLESv1_CM_adreno.so|6cb7c4b169b4bac76ca8aef66fefe8f1a9be1035
-vendor/lib64/egl/libGLESv2_adreno.so|cd5f0d6f7db8e8c0940a16a9e0eda4e246ac72a2
-vendor/lib64/egl/libQTapGLES.so|1574e91786f32f73037cfb10a95673886bab9ae9
-vendor/lib64/egl/libq3dtools_adreno.so|f8e2b2e134ba7d8f288a59c04479a2491654bb28
-vendor/lib64/egl/libq3dtools_esx.so|0beaea003773f0a59ccd33a84f3fc03b048c1f18
-vendor/lib64/libC2D2.so|b1ab52667820a7cdf4ef41cd4294600477b24946
-vendor/lib64/libCB.so|c3c1884c2181134c22e7983653be754e5af1243a
+vendor/lib/libc2d30_bltlib.so|43fd5d8e82da5fa0304e9ab33a12482f789a2248
+vendor/lib/libgsl.so|6dc478fa36e37a2834432da3181cb39293c18161
+vendor/lib/libllvm-glnext.so|b7feaa84df418711c8fa8978cf0cd6f029e5cb70
+vendor/lib/libllvm-qcom.so|819104dd7988bd1f469113300b2dd49032a7b482
+vendor/lib/librs_adreno.so|9e0ae04631a58b849ea7bd0edd7eb02f087c610c
+vendor/lib/librs_adreno_sha1.so|ec33e1d62eba5c928384cce1c18f7b8d2f611019
+vendor/lib64/egl/eglSubDriverAndroid.so|227e80990323e6a93b8d4bf6bca3e0fac8b13870
+vendor/lib64/egl/libEGL_adreno.so|e2e3ad52614551722ce5e493377fc8a12f144841
+vendor/lib64/egl/libGLESv1_CM_adreno.so|9d5ae0546336270e52205e8080553b716d568a2b
+vendor/lib64/egl/libGLESv2_adreno.so|9a658361f875e3bffd0034efebc3440b673faf12
+vendor/lib64/egl/libQTapGLES.so|4f163149d67414382bf2ef79f9a72b70b69d47cf
+vendor/lib64/egl/libq3dtools_adreno.so|8394dcd733a7aaaa7b82cfb5c9af6f55f9df179a
+vendor/lib64/egl/libq3dtools_esx.so|93afafc7488abd83a1726d9ef62af7c28e8ee53c
+vendor/lib64/libC2D2.so|70bdcfee80c9d569086a56d85abce0cd9dd2fd19
+vendor/lib64/libCB.so|6da8857c3ead535a22bcef1b2de3149d6e961f0a
 vendor/lib64/libOpenCL.so|0a7811295b3d1d2a941ec7277cbb888a85133e7c
 vendor/lib64/libRSDriver_adreno.so|5f32eff420408fe60d7e14800a213275ce0e0895
-vendor/lib64/libadreno_utils.so|d15d4c65554f6f050461ecfdf8e574b80b3ecefa
+vendor/lib64/libadreno_utils.so|d2cbbea5db017553b46ccf9d222f06eff9c4049f
 vendor/lib64/libbccQTI.so|61732bb9193b3bf4b593d24b0605cfffd7a38e29
-vendor/lib64/libc2d30_bltlib.so|ba28e665d1e7dce026f88d15864ac293e2585812
-vendor/lib64/libgsl.so|f931eb6fe67dce0c4313c497353a506653f345c7
-vendor/lib64/libllvm-glnext.so|badadd57853ea8547ff87d8b1f22229c8959668b
-vendor/lib64/libllvm-qcom.so|81f9491efa8b18c79c9a0c18e5ca83d2b630c5b0
-vendor/lib64/librs_adreno.so|e9d7fecae61fbc19873d749059e98ecaafc83af6
-vendor/lib64/librs_adreno_sha1.so|cf95e3d8f127862705895f9c5a4a2317d4aab6c8
+vendor/lib64/libc2d30_bltlib.so|ec2c569f9244d24264f2b5fde69509122606f222
+vendor/lib64/libgsl.so|2300da37aa0c97d1aec49229df46c8cd6ff33bdf
+vendor/lib64/libllvm-glnext.so|a1e383d710317ae4ee8f3ebaf39f04d60ba0b8d8
+vendor/lib64/libllvm-qcom.so|28f0297fb4a4b023c303cd733e1ffd6ef452413f
+vendor/lib64/librs_adreno.so|9a046223d0a88297f3188f4ff80eafaa7e46173a
+vendor/lib64/librs_adreno_sha1.so|727a62917ec8006850d2634c4d6e77e7f8ddae52
 
 # Graphics (Adreno firmware)
 vendor/firmware/a630_gmu.bin
@@ -371,9 +371,9 @@ vendor/firmware/a630_zap.b02
 vendor/firmware/a630_zap.elf
 vendor/firmware/a630_zap.mdt
 
-# Graphics (Vulkan) - from crosshatch - RPB1.200504.020
-vendor/lib/hw/vulkan.sdm845.so|f481d320d745d5f3faeee2427c572d2d455fb61f
-vendor/lib64/hw/vulkan.sdm845.so|c615fa02ce989b032cd3a300a2268729e2d44a37
+# Graphics (Vulkan) - from crosshatch - RP1A.200720.009
+vendor/lib/hw/vulkan.adreno.so|80492bc1dc6e88ae2756acf2c475ed701c0b62cf
+vendor/lib64/hw/vulkan.adreno.so|1da0ce5f8e4c44b8ffd5ada3c220629c7787e39d
 
 # IMS
 -product/app/uceShimService/uceShimService.apk
@@ -835,8 +835,8 @@ vendor/lib/libscvePanorama.so
 vendor/lib/libscvePanorama_lite.so
 vendor/lib/libscveScan3D.so
 
-# Snapdragon Computer Vision Engine - from crosshatch - RPB1.200504.020
-vendor/lib/libfastcvopt.so|8fa96f9e9ffbfd9c3bd36e74760b16452bb24235
+# Snapdragon Computer Vision Engine - from crosshatch - RP1A.200720.009
+vendor/lib/libfastcvopt.so|0230778b7a20140f9f8e8ba1cb1d3e8fae1a459e
 
 # Soter
 -vendor/app/SoterService/SoterService.apk
