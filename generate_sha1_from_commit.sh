@@ -16,6 +16,7 @@
 #
 # HISTORY
 #    2020/06/19 : Script creation
+#    2020/09/29 : Updated script to handle added and deleted blobs
 #
 #==============================================================================
 #
@@ -46,16 +47,36 @@ echo "$(git show -s --format='%h %s' ${COMMIT})"
 echo "========================================================"
 
 # iterate through changed files in the commit
-for file in $(git diff-tree --no-commit-id --name-only -r "${COMMIT}")
+git diff-tree --no-commit-id --name-status -r ${COMMIT} | while read line ;
 do
+    # separate status and file name
+    read -ra arr_line <<< "${line}"
+    status=${arr_line[0]}
+    file=${arr_line[1]}
+
+    # remove directory prefix from filename
+    file_stripped=${file#"${DIR_PREFIX}"}
+
+    # blob status is deleted
+    if [[ "$status" == "D" ]]; then
+        echo "deleting ${file_stripped}"
+        sed -i "\%^${file_stripped}%d" "${MY_DIR}/proprietary-files.txt"
+        continue
+    fi
+
     # generate sha1
     r="$(sha1sum "$file")"
     r_arr=($r)
     sha1="${r_arr[0]}"
 
-    # remove directory prefix from filename
-    file_stripped=${file#"${DIR_PREFIX}"}
+    # blob is newly added
+    if [[ "$status" == "A" ]]; then
+        echo "adding ${file_stripped}"
+        echo "${file_stripped}|${sha1}" >> "${MY_DIR}/proprietary-files.txt"
+        continue
+    fi
 
+    # the rest files already exist in the list and are modified
     # iterate through lines in proprietary-files.txt until the first
     # non-comment match
     for line in $(grep "$file_stripped" "${MY_DIR}/proprietary-files.txt")
