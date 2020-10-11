@@ -51,7 +51,6 @@ class Power : public ::aidl::android::hardware::power::BnPower {
     std::shared_ptr<HintManager> mHintManager;
     std::shared_ptr<DisplayLowPower> mDisplayLowPower;
     std::unique_ptr<InteractionHandler> mInteractionHandler;
-    std::atomic<bool> mVRModeOn;
     std::atomic<bool> mSustainedPerfModeOn;
 };
 
