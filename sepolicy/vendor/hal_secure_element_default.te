@@ -1,0 +1,1 @@
+binder_call(hal_secure_element_default, vendor_hal_qteeconnector_qti)
