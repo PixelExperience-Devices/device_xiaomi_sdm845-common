@@ -78,7 +78,6 @@ on init
     # Property used by pointing to thermal-engine config file
     setprop vendor.thermal.vr_mode -novr
     setprop vendor.thermal.hw_mode -prod
-    setprop vendor.thermal.config "thermal_info_config.json"
 
     # Freezer setup
     write /dev/freezer/frozen/freezer.killable 1
