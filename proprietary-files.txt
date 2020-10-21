@@ -845,10 +845,10 @@ vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
-# Thermal engine - from blueline - QP1A.191005.007
-vendor/bin/thermal-engine|90aa285b330d942d35b49863271211ae941d09bb
-vendor/lib64/libthermalclient.so|990bb81bda31c5b64ee3aaf8d809d85b3dee4a22
-vendor/lib/libthermalclient.so|3529b3437d25a604902e0434e59f3c3bf3494fb5
+# Thermal engine - from crosshatch - RP1A.200720.009
+vendor/bin/thermal-engine|94906caffc5e9a62707770364b8403c2fc4b5dbf
+vendor/lib64/libthermalclient.so|698d10e9af1489b24d8d65318e141a99de3f2e12
+vendor/lib/libthermalclient.so|984a40b53fc659ee3c99044ce0b42bcb69ad079a
 
 # Time services
 -vendor/app/TimeService/TimeService.apk
