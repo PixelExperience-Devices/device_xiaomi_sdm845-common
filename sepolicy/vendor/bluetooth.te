@@ -1,0 +1,1 @@
+allow bluetooth vendor_bluetooth_prop:file r_file_perms;
