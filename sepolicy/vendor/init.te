@@ -1,0 +1,2 @@
+allow init self:netlink_route_socket rw_socket_perms;
+allow init self:rawip_socket create_socket_perms;
