@@ -1,0 +1,1 @@
+allow qtidataservices_app self:socket create_socket_perms;
