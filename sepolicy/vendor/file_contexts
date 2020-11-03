@@ -61,7 +61,3 @@
 # Sockets
 /dev/socket/audio_hw_socket                   u:object_r:audio_socket:s0
 /dev/socket/gps                               u:object_r:gps_socket:s0
-
-# UFSHC
-/sys/devices/platform/soc/1d84000.ufshc/clkgate_enable                  u:object_r:sysfs_scsi_clkgate:s0
-/sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable          u:object_r:sysfs_scsi_hibern8:s0
