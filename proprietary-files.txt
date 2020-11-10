@@ -860,7 +860,7 @@ vendor/lib/mediadrm/libwvdrmengine.so|ba20868c7191c180cb7426d66b64a063b46e0cdb
 vendor/bin/cnss-daemon
 vendor/bin/nv_mac
 
-# WiFi Display
+# WiFi Display - from instantnoodlep - RP1A.201005.001/2009301800
 -system/framework/WfdCommon.jar|de1adc7a4adbb117123aa5bb116c5df83c686433
 system_ext/bin/wfdservice|91f6e2d58de9354a694d3b3da6e6d224dd7e47c1
 system_ext/etc/init/wfdservice.rc|aab7aecb01c359fd521c99957c4d5bfd16a8dfae
@@ -914,6 +914,8 @@ system_ext/lib64/vendor.qti.hardware.sigma_miracast@1.0-halimpl.so|a92f0d1859a39
 system_ext/lib64/vendor.qti.hardware.sigma_miracast@1.0.so|4117fa814cdbf160ac50d5164bba9317c33b13e1
 system_ext/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so|8cee184bb517d62ae283df8b2c8e727113336b7d
 -system_ext/priv-app/WfdService/WfdService.apk|489ead99be4203bd20eba9e68bed2115f5260a51
+
+# WiFi Display - from LA.UM.9.8.r1-02700-SDM710.0
 vendor/bin/wfdhdcphalservice|c7a2d70190d8a90a8ed326af0add5cf7c99d1ab6
 vendor/bin/wfdvndservice|f61f0c364444e750920f57cb1f1cda3a21b0dbbd
 vendor/bin/wifidisplayhalservice|414bb43e7f93d67d62ee7111ced4e55e065f6d8c
