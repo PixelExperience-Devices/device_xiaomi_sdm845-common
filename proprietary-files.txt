@@ -262,13 +262,13 @@ system_ext/lib64/libdpmtcm.so|ddef98d55e3045ebac458b38165acd5d2f75cd7a
 -system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk|2a1cd057e7471699028ef6108e87c48c8fd90835
 system/framework/tcmclient.jar|22858e8bb7e3f956e487dc6764ad8250f118d7ac
 
-# DPM
-vendor/bin/dpmQmiMgr
-vendor/etc/init/dpmQmiMgr.rc
-vendor/lib/com.qualcomm.qti.dpm.api@1.0.so
-vendor/lib/libdpmqmihal.so
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
-vendor/lib64/libdpmqmihal.so
+# DPM - from LA.UM.9.8.r1-02700-SDM710.0
+vendor/bin/dpmQmiMgr|4fe936478b0da1ee20c6222234b80d478a72cc2a
+vendor/etc/init/dpmQmiMgr.rc|1538743661a5c48c15cd105beaad20f72953885a
+vendor/lib/com.qualcomm.qti.dpm.api@1.0.so|faeee47eb6295d360c12132bbb7b31c2d07dd262
+vendor/lib/libdpmqmihal.so|ede3c5bbf1e9574bf230109eb6e7b78081e190bf
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|c5c893e86d38b8aa8cd277ccb8b011fb2f19995e
+vendor/lib64/libdpmqmihal.so|ffcd85e1f6bf7d54f37953edc2cb2c4a61fc894a
 
 # DRM
 vendor/bin/qseecomd
