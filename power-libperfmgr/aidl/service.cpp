@@ -31,16 +31,21 @@ using aidl::google::hardware::power::impl::xiaomi::Power;
 using aidl::google::hardware::power::impl::xiaomi::PowerExt;
 using ::android::perfmgr::HintManager;
 
-constexpr char kPowerHalConfigPath[] = "/vendor/etc/powerhint.json";
-constexpr char kPowerHalInitProp[] = "vendor.powerhal.init";
+constexpr std::string_view kPowerHalInitProp("vendor.powerhal.init");
+constexpr std::string_view kConfigProperty("vendor.powerhal.config");
+constexpr std::string_view kConfigDefaultFileName("powerhint.json");
 
 int main() {
-    LOG(INFO) << "Xiaomi sdm845 Power HAL AIDL Service with Extension is starting.";
+    const std::string config_path =
+            "/vendor/etc/" +
+            android::base::GetProperty(kConfigProperty.data(), kConfigDefaultFileName.data());
+    LOG(INFO) << "Xiaomi sdm845 Power HAL AIDL Service with Extension is starting with config: "
+              << config_path;
 
     // Parse config but do not start the looper
-    std::shared_ptr<HintManager> hm = HintManager::GetFromJSON(kPowerHalConfigPath, false);
+    std::shared_ptr<HintManager> hm = HintManager::GetFromJSON(config_path, false);
     if (!hm) {
-        LOG(FATAL) << "Invalid config: " << kPowerHalConfigPath;
+        LOG(FATAL) << "Invalid config: " << config_path;
     }
 
     std::shared_ptr<DisplayLowPower> dlpw = std::make_shared<DisplayLowPower>();
@@ -64,7 +69,7 @@ int main() {
     LOG(INFO) << "Xiaomi sdm845 Power HAL AIDL Service with Extension is started.";
 
     std::thread initThread([&]() {
-        ::android::base::WaitForProperty(kPowerHalInitProp, "1");
+        ::android::base::WaitForProperty(kPowerHalInitProp.data(), "1");
         hm->Start();
         dlpw->Init();
     });
