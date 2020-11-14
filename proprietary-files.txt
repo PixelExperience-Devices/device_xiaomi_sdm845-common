@@ -493,8 +493,8 @@ vendor/firmware/ipa_fws.b04
 vendor/firmware/ipa_fws.elf
 vendor/firmware/ipa_fws.mdt
 
-# IRQ balance
-vendor/bin/msm_irqbalance
+# IRQ balance - from LA.UM.9.8.r1-02700-SDM710.0
+vendor/bin/msm_irqbalance|c0910fb319bb8287f176f26078241299455baad0
 
 # Listen
 vendor/lib/hw/sound_trigger.primary.sdm845.so
