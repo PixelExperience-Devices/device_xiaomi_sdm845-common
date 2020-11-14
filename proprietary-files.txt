@@ -822,25 +822,25 @@ vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
 vendor/lib64/libtime_genoff.so|3f57de1aeb7aa113a0a579cebed85ab4405b9b49
 vendor/lib/libtime_genoff.so|9f1e0fd1180207b3df81aa65c319b0d5a467d74c
 
-# Trusted Execution Environment connector
-vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
+# Trusted Execution Environment connector - from LA.UM.9.8.r1-02700-SDM710.0
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service|f8dc88c7166ffc2c1d997e7d5f16a8eb69c37cfc
 vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/libGPQTEEC_vendor.so
-vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/libQTEEConnector_vendor.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
-vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib/libGPQTEEC_vendor.so
-vendor/lib/libGPTEE_vendor.so
-vendor/lib/libQTEEConnector_vendor.so
-vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|dd9d89e2b85b972e0e4c744d81da0f548ecb76cf
+vendor/lib64/libGPQTEEC_vendor.so|258aacbaa65c588c7c41860263c2db584437f189
+vendor/lib64/libGPTEE_vendor.so|a8896a022e2b977997a40be9c584ff778d25c0f9
+vendor/lib64/libQTEEConnector_vendor.so|62d8993f51e0d4a0c4d6ae2645512ddfc76577f3
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so|8c7e2bebeeb0a45737b1c38b193b8e01beb9d6ae
+vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|51c91307f88ea32af97478e7d6ff35f604963412
+vendor/lib/libGPQTEEC_vendor.so|5578cf76650057158a5ef118b4b75f0549af64cb
+vendor/lib/libGPTEE_vendor.so|ec4e64f998c4437318a94acacf266748c20f1346
+vendor/lib/libQTEEConnector_vendor.so|e7235407c52fed215d089884c8c9b6db9b5a6bae
+vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so|26e18337f1f8cf041c2a70b858f8ede656b4d854
 
-# Trusted User Interface
-vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
+# Trusted User Interface - from LA.UM.9.8.r1-02700-SDM710.0
+vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|e8d97981d09a4e34907d13bcbbd10f03572c9218
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
-vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
-vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
+vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|16baab27397ad493e845515c20ac0c0c063c775d
+vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|5e8423e080be3febc34152508153a58761c17a0f
 
 # Widevine DRM
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine|5aa424e97e92659be37cb2dad0de363aa6ef857f
