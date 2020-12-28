@@ -9,3 +9,4 @@ allow hal_thermal_default self:netlink_kobject_uevent_socket create_socket_perms
 get_prop(hal_thermal_default, vendor_thermal_prop)
 
 binder_call(hal_thermal_default, servicemanager)
+binder_call(hal_thermal_default, hal_power_default)
