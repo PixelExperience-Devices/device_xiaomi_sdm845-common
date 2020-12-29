@@ -53,3 +53,8 @@ if [ -f /sys/block/zram0/disksize ]; then
     mkswap /dev/block/zram0
     swapon /dev/block/zram0 -p 32758
 fi
+
+# Enable oom_reaper
+if [ -f /sys/module/lowmemorykiller/parameters/oom_reaper ]; then
+    echo 1 > /sys/module/lowmemorykiller/parameters/oom_reaper
+fi

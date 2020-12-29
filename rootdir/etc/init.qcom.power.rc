@@ -160,9 +160,6 @@ on enable-low-power
     # Limit the min frequency to 825MHz
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 825000
 
-    # Enable oom_reaper
-    write /sys/module/lowmemorykiller/parameters/oom_reaper 1
-
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
     write /sys/class/devfreq/soc:qcom,cpubw/polling_interval 50
