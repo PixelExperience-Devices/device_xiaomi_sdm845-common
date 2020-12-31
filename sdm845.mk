@@ -307,12 +307,6 @@ PRODUCT_PACKAGES += \
     libjson \
     librmnetctl
 
-# RCS
-PRODUCT_PACKAGES += \
-    com.android.ims.rcsmanager \
-    PresencePolling \
-    RcsService
-
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
