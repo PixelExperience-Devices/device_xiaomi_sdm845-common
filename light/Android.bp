@@ -16,8 +16,8 @@ cc_binary {
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
     name: "android.hardware.light@2.0-service.xiaomi_sdm845",
-    init_rc: ["android.hardware.light@2.0-service.xiaomi_sdm845.rc"],
-    srcs: ["service.cpp", "Light.cpp"],
+    init_rc: ["hidl/android.hardware.light@2.0-service.xiaomi_sdm845.rc"],
+    srcs: ["hidl/service.cpp", "hidl/Light.cpp"],
     vendor: true,
     shared_libs: [
         "android.hardware.light@2.0",
