@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2020 The PixelExperience Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,6 +61,7 @@ Power::Power(std::shared_ptr<HintManager> hm, std::shared_ptr<DisplayLowPower> d
       mDisplayLowPower(dlpw),
       mInteractionHandler(nullptr),
       mSustainedPerfModeOn(false),
+      mPathCached(false),
       mAdpfRateNs(
               ::android::base::GetIntProperty(kPowerHalAdpfRateProp, kPowerHalAdpfRateDefault)) {
     mInteractionHandler = std::make_unique<InteractionHandler>(mHintManager);
@@ -90,7 +92,12 @@ Power::Power(std::shared_ptr<HintManager> hm, std::shared_ptr<DisplayLowPower> d
     LOG(INFO) << "PowerHAL ready to take hints, Adpf update rate: " << mAdpfRateNs;
 }
 
-static int open_ts_input() {
+int Power::open_ts_input() {
+    if (mPathCached) {
+        LOG(DEBUG) << "Using cached DT2W path.";
+        return (open(mDt2wPath, O_RDWR));
+    }
+
     int fd = -1;
     DIR *dir = opendir("/dev/input");
 
@@ -110,8 +117,13 @@ static int open_ts_input() {
                     if (strcmp(name, "atmel_mxt_ts") == 0 || strcmp(name, "fts_ts") == 0 ||
                             strcmp(name, "fts") == 0 || strcmp(name, "ft5x46") == 0 ||
                             strcmp(name, "synaptics_dsx") == 0 ||
-                            strcmp(name, "NVTCapacitiveTouchScreen") == 0)
+                            strcmp(name, "NVTCapacitiveTouchScreen") == 0) {
+                        // cache the dt2w node after finding a match
+                        LOG(INFO) << "Found and cached a valid DT2W node: " << absolute_path;
+                        strncpy(mDt2wPath, absolute_path, PATH_MAX);
+                        mPathCached = true;
                         break;
+                    }
                 }
 
                 close(fd);
@@ -125,7 +137,7 @@ static int open_ts_input() {
     return fd;
 }
 
-static void handle_dt2w(bool enabled) {
+void Power::handle_dt2w(bool enabled) {
     char buf[80];
     int len;
 
@@ -143,6 +155,9 @@ static void handle_dt2w(bool enabled) {
     if (len < 0) {
         strerror_r(errno, buf, sizeof(buf));
         ALOGE("Error writing to fd %d: %s\n", fd, buf);
+        // invalidate the dt2w path cache
+        LOG(INFO) << "Invaliding the DT2W node cache.";
+        mPathCached = false;
     }
     close(fd);
 }
