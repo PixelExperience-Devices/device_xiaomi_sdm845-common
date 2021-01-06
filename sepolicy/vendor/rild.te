@@ -2,3 +2,5 @@ dontaudit rild tombstone_data_file:dir search;
 dontaudit rild vendor_file:file ioctl;
 
 set_prop(rild, deviceid_prop)
+
+binder_call(rild, qtidataservices_app)
