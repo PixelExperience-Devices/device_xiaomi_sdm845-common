@@ -59,6 +59,10 @@ sdm.debug.disable_inline_rotator_secure=1
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 
+# LMKD
+ro.config.low_ram=false
+ro.lmk.log_stats=true
+
 # IMS
 persist.vendor.ims.disableUserAgent=0
 
