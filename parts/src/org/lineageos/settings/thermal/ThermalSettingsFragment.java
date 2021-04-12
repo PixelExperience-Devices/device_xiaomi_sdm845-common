@@ -203,18 +203,8 @@ public class ThermalSettingsFragment extends PreferenceFragment
 
     private int getStateDrawable(int state) {
         switch (state) {
-            case ThermalUtils.STATE_BENCHMARK:
-                return R.drawable.ic_thermal_benchmark;
-            case ThermalUtils.STATE_BROWSER:
-                return R.drawable.ic_thermal_browser;
-            case ThermalUtils.STATE_CAMERA:
-                return R.drawable.ic_thermal_camera;
-            case ThermalUtils.STATE_DIALER:
-                return R.drawable.ic_thermal_dialer;
             case ThermalUtils.STATE_GAMING:
                 return R.drawable.ic_thermal_gaming;
-            case ThermalUtils.STATE_STREAMING:
-                return R.drawable.ic_thermal_streaming;
             case ThermalUtils.STATE_DEFAULT:
             default:
                 return R.drawable.ic_thermal_default;
@@ -246,12 +236,7 @@ public class ThermalSettingsFragment extends PreferenceFragment
         private final int textColor;
         private final int[] items = {
                 R.string.thermal_default,
-                R.string.thermal_benchmark,
-                R.string.thermal_browser,
-                R.string.thermal_camera,
-                R.string.thermal_dialer,
-                R.string.thermal_gaming,
-                R.string.thermal_streaming
+                R.string.thermal_gaming
         };
 
         private ModeAdapter(Context context) {
@@ -379,25 +364,8 @@ public class ThermalSettingsFragment extends PreferenceFragment
                 case ThermalUtils.STATE_DEFAULT:
                     mThermalUtils.writePackage(entry.info.packageName, ThermalUtils.STATE_DEFAULT);
                     break;
-                case ThermalUtils.STATE_BENCHMARK:
-                    mThermalUtils.writePackage(entry.info.packageName,
-                            ThermalUtils.STATE_BENCHMARK);
-                    break;
-                case ThermalUtils.STATE_BROWSER:
-                    mThermalUtils.writePackage(entry.info.packageName, ThermalUtils.STATE_BROWSER);
-                    break;
-                case ThermalUtils.STATE_CAMERA:
-                    mThermalUtils.writePackage(entry.info.packageName, ThermalUtils.STATE_CAMERA);
-                    break;
-                case ThermalUtils.STATE_DIALER:
-                    mThermalUtils.writePackage(entry.info.packageName, ThermalUtils.STATE_DIALER);
-                    break;
                 case ThermalUtils.STATE_GAMING:
                     mThermalUtils.writePackage(entry.info.packageName, ThermalUtils.STATE_GAMING);
-                    break;
-                case ThermalUtils.STATE_STREAMING:
-                    mThermalUtils.writePackage(entry.info.packageName,
-                            ThermalUtils.STATE_STREAMING);
                     break;
             }
             notifyDataSetChanged();
