@@ -355,6 +355,7 @@ PRODUCT_COPY_FILES += \
 # Thermal-engine
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-qcom-novr-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-qcom-novr-prod.conf \
+    $(LOCAL_PATH)/configs/thermal-engine-qcom-gaming-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-qcom-gaming-prod.conf \
     $(LOCAL_PATH)/configs/thermal-engine-qcom-vr-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-qcom-vr-prod.conf
 
 # Tracing
