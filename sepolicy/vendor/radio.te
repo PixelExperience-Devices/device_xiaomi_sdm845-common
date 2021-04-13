@@ -4,5 +4,5 @@ allow radio hal_iwlan_hwservice:hwservice_manager find;
 
 binder_call(radio, cnd)
 
-allow radio self:socket create_socket_perms;
+allow radio self:socket create_socket_perms_no_ioctl;
 
