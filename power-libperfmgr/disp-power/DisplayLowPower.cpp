@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.power@-service.xiaomi-libperfmgr"
+#define LOG_TAG "android.hardware.power@-service.xiaomi-sdm845-libperfmgr"
 
 #include <errno.h>
 #include <unistd.h>
