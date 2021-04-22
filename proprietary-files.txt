@@ -1,4 +1,4 @@
-# Common proprietary files - from polaris' MIUI package V12.0.3.0.QDGMIXM global stable version, unless pinned
+# Common proprietary files - from polaris' MIUI package V12.0.3.0.QDGMIXM China stable version, unless pinned
 
 # ADSP
 vendor/bin/adsprpcd
