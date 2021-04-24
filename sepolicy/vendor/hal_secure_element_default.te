@@ -1,3 +1,1 @@
-binder_call(hal_secure_element_default, vendor_hal_qteeconnector_qti)
 add_hwservice(hal_secure_element_default, hal_nxpese_hwservice)
-allow hal_secure_element_default vendor_hal_qteeconnector_hwservice:hwservice_manager find;
