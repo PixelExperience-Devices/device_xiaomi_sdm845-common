@@ -42,6 +42,8 @@ public final class ThermalUtils {
 
     private static final String VENDOR_THERMAL_PROP = "vendor.thermal.vr_mode";
 
+    private static String mCurrentProfile;
+
     private SharedPreferences mSharedPrefs;
 
     protected ThermalUtils(Context context) {
@@ -49,6 +51,12 @@ public final class ThermalUtils {
     }
 
     public static void startService(Context context) {
+        mCurrentProfile = THERMAL_PROP_DEFAULT;
+        try {
+            mCurrentProfile = SystemProperties.get(VENDOR_THERMAL_PROP);
+        } catch (RuntimeException e) {
+            Log.e(TAG, "Failed to get " + VENDOR_THERMAL_PROP, e);
+        }
         context.startServiceAsUser(new Intent(context, ThermalService.class),
                 UserHandle.CURRENT);
     }
@@ -108,10 +116,13 @@ public final class ThermalUtils {
             }
         }
 
-        try {
-            SystemProperties.set(VENDOR_THERMAL_PROP, prop);
-        } catch (RuntimeException e) {
-            Log.e(TAG, "Failed to set " + VENDOR_THERMAL_PROP + "to " + prop, e);
+        if (!prop.equals(mCurrentProfile)) {
+            mCurrentProfile = prop;
+            try {
+                SystemProperties.set(VENDOR_THERMAL_PROP, prop);
+            } catch (RuntimeException e) {
+                Log.e(TAG, "Failed to set " + VENDOR_THERMAL_PROP + "to " + prop, e);
+            }
         }
     }
 }
