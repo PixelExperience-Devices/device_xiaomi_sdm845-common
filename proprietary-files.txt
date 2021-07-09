@@ -460,8 +460,8 @@ vendor/firmware/ipa_fws.b04
 vendor/firmware/ipa_fws.elf
 vendor/firmware/ipa_fws.mdt
 
-# IRQ balance - from LA.UM.9.8.r1-02700-SDM710.0
-vendor/bin/msm_irqbalance|c0910fb319bb8287f176f26078241299455baad0
+# IRQ balance - from OnePlus6 - RKQ1.201217.002/2106301530
+vendor/bin/msm_irqbalance|b075c2f4092c175950a2c26d19bf2013e2efd6d5
 
 # Listen
 vendor/lib/hw/sound_trigger.primary.sdm845.so|5454d56f9e19a8bcc00c1f3cd0bf305406c125a5
