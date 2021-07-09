@@ -2,7 +2,7 @@
   {
     "repository" : "vendor_xiaomi_sdm845-common",
     "target_path": "vendor/xiaomi/sdm845-common",
-    "branch": "eleven",
+    "branch": "eleven-wip",
     "remote": "pixel-devices-blobs"
   },
   {
