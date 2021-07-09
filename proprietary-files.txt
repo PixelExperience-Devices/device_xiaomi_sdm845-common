@@ -784,9 +784,9 @@ vendor/bin/thermal-engine|94906caffc5e9a62707770364b8403c2fc4b5dbf
 vendor/lib64/libthermalclient.so|698d10e9af1489b24d8d65318e141a99de3f2e12
 vendor/lib/libthermalclient.so|984a40b53fc659ee3c99044ce0b42bcb69ad079a
 
-# Time services - from LA.UM.9.8.r1-02700-SDM710.0
--vendor/app/TimeService/TimeService.apk|12495431d5cc284822a303a43861c9b3c0c446ac
-vendor/bin/time_daemon|e62d164b8c8b30743837896d4c5e8bca39b364e6
+# Time services - from OnePlus6 - RKQ1.201217.002/2106301530
+-vendor/app/TimeService/TimeService.apk|fc62dd7314c5ce2e767008f80f5fee751b87b488
+vendor/bin/time_daemon|f58945c0d9c75aaf36a40676ff2737022e9dd38b
 vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
 vendor/lib64/libtime_genoff.so|3f57de1aeb7aa113a0a579cebed85ab4405b9b49
 vendor/lib/libtime_genoff.so|9f1e0fd1180207b3df81aa65c319b0d5a467d74c
