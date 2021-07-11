@@ -175,15 +175,15 @@ vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so|b17a82a9740832bd686c3d4c4e36d0e
 vendor/lib64/vendor.qti.hardware.slmadapter@1.0.so|07bf28004086b972367c44703bd0247d7a78faf4
 vendor/lib64/vendor.qti.latency@2.0.so|1589280034898a0ab3052234ef90b7c674d5be5b
 
-# Configstore - from LA.UM.9.8.r1-02700-SDM710.0
+# Configstore - from OnePlus6 - RKQ1.201217.002/2106301530
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service|8a64779e1a5df5153f10871cf23c65c3f7f94ae7
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so|3e517ec6b4603c6c1f5945b3f131aa69bccb0b08
 -vendor/lib/libplatformconfig.so|6ae35525576ba7335529adf6e3e51c0bd89d2ffa
-vendor/lib/vendor.qti.hardware.capabilityconfigstore@1.0.so|6767a898a29c05ce98b01445f4d98a1e1c644437
+vendor/lib/vendor.qti.hardware.capabilityconfigstore@1.0.so|a4173f7af5a0a4ea09f89cc06ecb9374dec1653d
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so|eb1a99915765fca7add8de87d7c4ef9bf031e155
 -vendor/lib64/libplatformconfig.so|41947459083b77dcf5092694e5e7da9a98285e3d
-vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so|02e44bce3dc3de22fa9a146648ac19e7b17c9217
+vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so|cca6f5f8bb798633d5a425876ed29155be06321f
 
 # Display (HDR) - from OnePlus6 - RKQ1.201217.002/2106301530
 vendor/lib/libhdr_tm.so|af8f696556839ff13a523a478866064a537c8477
