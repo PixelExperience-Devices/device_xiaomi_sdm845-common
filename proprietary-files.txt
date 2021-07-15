@@ -816,13 +816,13 @@ vendor/lib64/libvpplibrary.so|1f1b5e254048502df3d2160c569263cda0ea3c80
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so|f7769685d9c0c74f8c8419db028a5d5c3f65a9da
 vendor/lib64/vendor.qti.hardware.vpp@1.2.so|ca1906012d0ab6dc9048aa49703833512308e6cf
 
-# Widevine DRM
-vendor/bin/hw/android.hardware.drm@1.3-service.widevine|5aa424e97e92659be37cb2dad0de363aa6ef857f
+# Widevine DRM - from OnePlus6 - RKQ1.201217.002/2106301530
+vendor/bin/hw/android.hardware.drm@1.3-service.widevine|37b4dce2288c0c37bc28680c2de400622f49bf72
 vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|c35e1a6f9a6faff19064a81e07c4be82ceaf4bb5
 -vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml|ebebcf8f367641480cf7d512fc06e6ab777527be
-vendor/lib64/mediadrm/libwvdrmengine.so|6de9964535b02ae2ce20151350704f90a7d8193e
-vendor/lib64/libwvhidl.so|3e21b09fe7411941454a8055fb05bf1fedd1e0f0
-vendor/lib/mediadrm/libwvdrmengine.so|ba20868c7191c180cb7426d66b64a063b46e0cdb
+vendor/lib64/mediadrm/libwvdrmengine.so|f25fe9c6038fb99b0308998e0a8dba3b7c32fa50
+vendor/lib64/libwvhidl.so|f32257498c35e1336b48a03463f8c8cea7df7b18
+vendor/lib/mediadrm/libwvdrmengine.so|0363a398d49518d0442df335e8cb7f19741dec9d
 
 # WiFi
 vendor/bin/cnss-daemon
