@@ -806,11 +806,13 @@ vendor/bin/vppservice|eb1d668979c9e3dd487ac6131b5a36f70ba38d54
 vendor/etc/configstore/vpp.configstore.xml
 vendor/etc/init/vppservice.rc|9daea1a00124d65ecb6978936785273edb74a8ed
 vendor/lib/libvppclient.so|10bb06c41665304d582d56b57a188bb452f50b58
+vendor/lib/libvpphcp.so|226176e9b08c931fc857c51eccb9a29aabaf5a00
 vendor/lib/libvpphvx.so|4803da671b8d90d5cdb93f8c2011966e92141eb1
 vendor/lib/libvpplibrary.so|1080e9667d7e9072c84fd12de27abc8c31f97896
 vendor/lib/vendor.qti.hardware.vpp@1.1.so|8df356bc93951b2072590ff17c5d7af08b4e8299
 vendor/lib/vendor.qti.hardware.vpp@1.2.so|edd5e3b33c51c31c8e9e54912269e893c4e3c730
 vendor/lib64/libvppclient.so|00ddeef7e54e1bb3025be74aa95647ab7196026c
+vendor/lib64/libvpphcp.so|8e20b26195b5ae79fa4b26faf7d47de27cac33f4
 vendor/lib64/libvpphvx.so|f60a0dc45c410d63ff4825f5519fdb365f5700ea
 vendor/lib64/libvpplibrary.so|1f1b5e254048502df3d2160c569263cda0ea3c80
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so|f7769685d9c0c74f8c8419db028a5d5c3f65a9da
