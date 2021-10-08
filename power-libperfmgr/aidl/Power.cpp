@@ -35,6 +35,11 @@
 #include "PowerSessionManager.h"
 #include "disp-power/DisplayLowPower.h"
 
+#include <linux/input.h>
+
+constexpr int kWakeupModeOff = 4;
+constexpr int kWakeupModeOn = 5;
+
 namespace aidl {
 namespace google {
 namespace hardware {
@@ -85,11 +90,71 @@ Power::Power(std::shared_ptr<HintManager> hm, std::shared_ptr<DisplayLowPower> d
     LOG(INFO) << "PowerHAL ready to take hints, Adpf update rate: " << mAdpfRateNs;
 }
 
+static int open_ts_input() {
+    int fd = -1;
+    DIR *dir = opendir("/dev/input");
+
+    if (dir != NULL) {
+        struct dirent *ent;
+
+        while ((ent = readdir(dir)) != NULL) {
+            if (ent->d_type == DT_CHR) {
+                char absolute_path[PATH_MAX] = {0};
+                char name[80] = {0};
+
+                strcpy(absolute_path, "/dev/input/");
+                strcat(absolute_path, ent->d_name);
+
+                fd = open(absolute_path, O_RDWR);
+                if (ioctl(fd, EVIOCGNAME(sizeof(name) - 1), &name) > 0) {
+                    if (strcmp(name, "atmel_mxt_ts") == 0 || strcmp(name, "fts_ts") == 0 ||
+                            strcmp(name, "fts") == 0 || strcmp(name, "ft5x46") == 0 ||
+                            strcmp(name, "synaptics_dsx") == 0 ||
+                            strcmp(name, "NVTCapacitiveTouchScreen") == 0)
+                        break;
+                }
+
+                close(fd);
+                fd = -1;
+            }
+        }
+
+        closedir(dir);
+    }
+
+    return fd;
+}
+
+static void handle_dt2w(bool enabled) {
+    char buf[80];
+    int len;
+
+    int fd = open_ts_input();
+    if (fd == -1) {
+        ALOGW("DT2W won't work because no supported touchscreen input devices were found");
+        return;
+    }
+    struct input_event ev;
+    ev.type = EV_SYN;
+    ev.code = SYN_CONFIG;
+    ev.value = enabled ? kWakeupModeOn : kWakeupModeOff;
+
+    len = write(fd, &ev, sizeof(ev));
+    if (len < 0) {
+        strerror_r(errno, buf, sizeof(buf));
+        ALOGE("Error writing to fd %d: %s\n", fd, buf);
+    }
+    close(fd);
+}
+
 ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
     LOG(DEBUG) << "Power setMode: " << toString(type) << " to: " << enabled;
     ATRACE_INT(toString(type).c_str(), enabled);
     PowerSessionManager::getInstance()->updateHintMode(toString(type), enabled);
     switch (type) {
+        case Mode::DOUBLE_TAP_TO_WAKE:
+            handle_dt2w(enabled);
+            break;
         case Mode::LOW_POWER:
             break;
         case Mode::SUSTAINED_PERFORMANCE:
@@ -102,8 +167,6 @@ ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
             if (mSustainedPerfModeOn) {
                 break;
             }
-            [[fallthrough]];
-        case Mode::DOUBLE_TAP_TO_WAKE:
             [[fallthrough]];
         case Mode::FIXED_PERFORMANCE:
             [[fallthrough]];
@@ -131,8 +194,8 @@ ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
 
 ndk::ScopedAStatus Power::isModeSupported(Mode type, bool *_aidl_return) {
     bool supported = mHintManager->IsHintSupported(toString(type));
-    // LOW_POWER handled insides PowerHAL specifically
-    if (type == Mode::LOW_POWER) {
+    // LOW_POWER and DOUBLE_TAP_TO_WAKE handled insides PowerHAL specifically
+    if (type == Mode::LOW_POWER || type == Mode::DOUBLE_TAP_TO_WAKE) {
         supported = true;
     }
     LOG(INFO) << "Power mode " << toString(type) << " isModeSupported: " << supported;
