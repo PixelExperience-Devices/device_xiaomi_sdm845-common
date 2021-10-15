@@ -2,6 +2,8 @@ set_prop(vendor_init, vendor_thermal_prop)
 set_prop(vendor_init, vendor_power_prop)
 set_prop(vendor_init, freq_prop)
 
+get_prop(vendor_init, persist_debug_prop)
+
 # Allow vendor_init to write to sysfs_ssr_toggle
 allow vendor_init sysfs_ssr_toggle:file w_file_perms;
 
