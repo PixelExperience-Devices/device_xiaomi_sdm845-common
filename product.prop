@@ -61,7 +61,7 @@ ro.lmk.log_stats=true
 persist.vendor.ims.disableUserAgent=0
 
 # IORap
-iorapd.readahead.enable=true
+persist.device_config.runtime_native_boot.iorap_readahead_enable=true
 
 # Media
 media.stagefright.thumbnail.prefer_hw_codecs=true
