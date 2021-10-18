@@ -79,8 +79,8 @@ vendor/lib/soundfx/libdirac.so
 vendor/lib/soundfx/libshoebox.so
 
 # Bluetooth
-system/lib64/libbtconfigstore.so
-system/lib/libbtconfigstore.so
+-system/lib64/libbtconfigstore.so
+-system/lib/libbtconfigstore.so
 vendor/lib64/hw/audio.bluetooth_qti.default.so
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
