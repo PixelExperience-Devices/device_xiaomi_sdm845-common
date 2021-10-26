@@ -464,5 +464,7 @@ PRODUCT_PACKAGES += \
     libnl \
     libwfdaac_vendor
 
+include vendor/xiaomi/sdm845-common-extra/wfd.mk
+
 # Set boot SPL
 BOOT_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
