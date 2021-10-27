@@ -1,4 +1,4 @@
 # IMEI
-type deviceid_prop, property_type;
+vendor_public_prop(deviceid_prop);
 
-type vendor_thermal_prop, property_type;
+vendor_public_prop(vendor_thermal_prop);
