@@ -383,7 +383,6 @@ system_ext/lib64/com.qualcomm.qti.imscmservice@2.2.so|fa642a1b7b047fbbc573293930
 system_ext/lib64/com.qualcomm.qti.uceservice@2.0.so|54078460bd6339576977735ce89f5ffa683ea323
 system_ext/lib64/com.qualcomm.qti.uceservice@2.1.so|ab988492bdaa3595f28c3542c03771079c9de1c1
 system_ext/lib64/com.qualcomm.qti.uceservice@2.2.so|58d618b368fbe2e92f8a756ccb0436267188c2a6
-system_ext/lib64/lib-imsvideocodec.so|79ac6b3cd5835d54e20219e71c91a1205e340f95
 system_ext/lib64/lib-imsvt.so|f795cc87119b49587dbb1f3e4349fcf67b0610ed
 system_ext/lib64/lib-imsvtextutils.so|50a092eb7b490f4307bddb3d5a4c595b458bc503
 system_ext/lib64/lib-imsvtutils.so|594714eb04346ca3e864b022251f866f85f0393d
@@ -409,6 +408,9 @@ system_ext/lib64/vendor.qti.ims.rcsconfig@2.0.so|1c553a17cb5eb428a20d5766f639baf
 system_ext/lib64/vendor.qti.ims.rcsconfig@2.1.so|5df7c723bd39a142005928e93d5c3ea068e8f992
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so|34da5e45ae4817ccff75c6b8d1d0c125ebd253ed
 -system_ext/priv-app/ims/ims.apk|9bd9423a998eae93b2c94a4820459d7b33c8a51a
+
+# IMS - from alioth - 12/SKQ1.210908.001/21.10.12
+system_ext/lib64/lib-imsvideocodec.so|b7001bb1008106ccb9ef92dd2560e2052b40c325
 
 # IMS - from pyxis - RKQ1.200826.002/21.3.31
 vendor/bin/ims_rtp_daemon|2c995a884bbde9f37a44a10ac8fb694b30af97ea
