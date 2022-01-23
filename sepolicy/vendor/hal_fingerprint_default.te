@@ -11,5 +11,8 @@ allow hal_fingerprint_default input_device:chr_file rw_file_perms;
 set_prop(hal_fingerprint_default, vendor_fp_prop)
 hal_client_domain(hal_fingerprint_default, hal_perf)
 
+# Allow fp HAL to sent hint
+hal_client_domain(hal_fingerprint_default, hal_power)
+
 # Ignore all logging requests
 dontaudit hal_fingerprint storage_file:dir search;

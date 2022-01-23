@@ -28,6 +28,9 @@ cc_binary {
         "libcutils",
         "android.hardware.biometrics.fingerprint@2.1",
         "vendor.xiaomi.hardware.fingerprintextension@1.0",
+        "android.hardware.power-V1-ndk_platform",
+        "pixel-power-ext-V1-ndk_platform",
+        "libbinder_ndk",
     ],
     proprietary: true,
 }
