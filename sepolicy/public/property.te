@@ -2,3 +2,5 @@
 vendor_public_prop(deviceid_prop);
 
 vendor_public_prop(vendor_thermal_prop);
+
+system_public_prop(settingslib_prop)
