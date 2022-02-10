@@ -9,7 +9,7 @@ ro.config.vc_call_vol_steps=11
 # Bluetooth
 vendor.bluetooth.soc=cherokee
 # Hearing Aid Audio Support Using Bluetooth LE
-bluetooth.profile.asha.central=true
+bluetooth.profile.asha.central.enabled=true
 
 # Camera
 camera.disable_zsl_mode=true
