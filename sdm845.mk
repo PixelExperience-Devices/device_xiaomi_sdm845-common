@@ -151,6 +151,7 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.sensors.sh \
     init.qcom.sh \
+    init.performance_level.rc \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.recovery.qcom.rc \
