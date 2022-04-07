@@ -47,6 +47,3 @@ persist.sensor.sardisable  u:object_r:sensors_prop:s0
 # Thermal
 persist.sys.thermal.       u:object_r:thermal_engine_prop:s0
 
-# Thermal HAL
-ctl.vendor.thermal-engine  u:object_r:vendor_thermal_prop:s0
-vendor.thermal.            u:object_r:vendor_thermal_prop:s0
