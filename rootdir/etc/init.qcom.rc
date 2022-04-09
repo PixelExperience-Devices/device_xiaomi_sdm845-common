@@ -75,10 +75,6 @@ on init
     chmod 0660 /dev/mi-camera-vendor2hal
     chmod 0660 /dev/mi-camera-hal2vendor
 
-    # Property used by pointing to thermal-engine config file
-    setprop vendor.thermal.vr_mode -novr
-    setprop vendor.thermal.hw_mode -prod
-
 on fs
     wait /dev/block/platform/soc/1d84000.ufshc
     symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
@@ -661,17 +657,14 @@ service spdaemon /vendor/bin/spdaemon
     user system
     group system
 
-# reset thermal-engine when changed profile
-on property:vendor.thermal.vr_mode=*
-    restart vendor.thermal-engine
-
-service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-${ro.hardware}${vendor.thermal.vr_mode}${vendor.thermal.hw_mode}.conf
-   class main
-   user root
-   group root system
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
+service thermal-engine /system/vendor/bin/thermal-engine
+    class main
+    user root
+    socket thermal-send-client stream 0666 system system
+    socket thermal-recv-client stream 0660 system system
+    socket thermal-recv-passive-client stream 0666 system system
+    socket thermal-send-rule stream 0660 system system
+    group root
 
 service ppd /vendor/bin/mm-pp-dpps
     class late_start

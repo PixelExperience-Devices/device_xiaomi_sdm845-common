@@ -1,4 +1,4 @@
-set_prop(vendor_init, vendor_thermal_prop)
+
 set_prop(vendor_init, vendor_power_prop)
 set_prop(vendor_init, freq_prop)
 

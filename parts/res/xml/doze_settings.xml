@@ -22,11 +22,12 @@
     <com.android.settingslib.widget.MainSwitchPreference
         android:defaultValue="false"
         android:key="doze_enable"
-        android:title="@string/ambient_display_enable_title" />
+        android:title="@string/ambient_enable" />
 
     <SwitchPreference
         android:key="always_on_display"
         android:disableDependentsState="true"
+        android:icon="@drawable/ic_display"
         android:title="@string/ambient_display_always_on_title"
         android:summary="@string/ambient_display_always_on_summary"
         android:persistent="false" />
@@ -41,6 +42,14 @@
             android:icon="@drawable/ic_pickup"
             android:title="@string/pick_up_gesture_title"
             android:summary="@string/pick_up_gesture_summary" />
+
+        <SwitchPreference
+            android:key="gesture_raise_to_wake"
+            android:defaultValue="false"
+            android:disableDependentsState="true"
+            android:title="@string/raise_to_wake_gesture_title"
+            android:summary="@string/raise_to_wake_gesture_summary"
+            android:icon="@drawable/ic_raise" />
 
     </PreferenceCategory>
 
