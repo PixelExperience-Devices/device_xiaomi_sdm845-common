@@ -845,6 +845,7 @@ vendor/lib/libqminvapi.so
 vendor/lib64/libqminvapi.so
 
 # WiFi Display - from LA.QSSI.12.0.r1-05100-qssi.0
+-system/framework/WfdCommon.jar|9f431b56d7f38c71089333008695dd5f717e5034
 system_ext/bin/wfdservice64|dfba81ff32b92652dfca237b590dd104dc7ced34
 system_ext/bin/wfdservice|2d9bde189325b3faf4e1571543867c6a7e00762d
 system_ext/etc/init/wfdservice.rc|907def8565d8f91f531ca7dfad880af05d540b0c
