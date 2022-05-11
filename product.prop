@@ -32,6 +32,7 @@ ro.vendor.use_data_netmgrd=true
 
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
+dalvik.vm.systemuicompilerfilter=speed
 
 # Display post-processing
 ro.qualcomm.cabl=0
