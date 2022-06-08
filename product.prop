@@ -8,7 +8,7 @@ ro.config.vc_call_vol_steps=11
 
 # Camera
 camera.disable_zsl_mode=true
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,org.pixelexperience.faceunlock,org.lineageos.aperture,org.lineageos.aperture.dev
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.pixelexperience.faceunlock,org.lineageos.aperture,org.lineageos.aperture.dev
 
 # Charger
 ro.charger.enable_suspend=true
