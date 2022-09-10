@@ -16,8 +16,6 @@
 
 #pragma once
 
-#include "PowerHintSession.h"
-
 #include <android-base/properties.h>
 #include <perfmgr/HintManager.h>
 #include <utils/Looper.h>
@@ -25,6 +23,8 @@
 #include <mutex>
 #include <optional>
 #include <unordered_set>
+
+#include "PowerHintSession.h"
 
 namespace aidl {
 namespace google {
@@ -45,13 +45,15 @@ class PowerSessionManager : public MessageHandler {
   public:
     // current hint info
     void updateHintMode(const std::string &mode, bool enabled);
+    void updateHintBoost(const std::string &boost, int32_t durationMs);
     int getDisplayRefreshRate();
     // monitoring session status
     void addPowerSession(PowerHintSession *session);
     void removePowerSession(PowerHintSession *session);
-
+    void setUclampMin(PowerHintSession *session, int min);
+    void setUclampMinLocked(PowerHintSession *session, int min);
     void handleMessage(const Message &message) override;
-    void setHintManager(std::shared_ptr<HintManager> const &hint_manager);
+    void dumpToFd(int fd);
 
     // Singleton
     static sp<PowerSessionManager> getInstance() {
@@ -60,23 +62,37 @@ class PowerSessionManager : public MessageHandler {
     }
 
   private:
-    std::optional<bool> isAnySessionActive();
+    class WakeupHandler : public MessageHandler {
+      public:
+        WakeupHandler() {}
+        void handleMessage(const Message &message) override;
+    };
+
+  private:
+    void wakeSessions();
+    std::optional<bool> isAnyAppSessionActive();
     void disableSystemTopAppBoost();
     void enableSystemTopAppBoost();
     const std::string kDisableBoostHintName;
-    std::shared_ptr<HintManager> mHintManager;
+
     std::unordered_set<PowerHintSession *> mSessions;  // protected by mLock
     std::unordered_map<int, int> mTidRefCountMap;      // protected by mLock
+    std::unordered_map<int, std::unordered_set<PowerHintSession *>> mTidSessionListMap;
+    sp<WakeupHandler> mWakeupHandler;
+    bool mActive;  // protected by mLock
+    /**
+     * mLock to pretect the above data objects opertions.
+     **/
     std::mutex mLock;
     int mDisplayRefreshRate;
-    bool mActive;  // protected by mLock
     // Singleton
     PowerSessionManager()
         : kDisableBoostHintName(::android::base::GetProperty(kPowerHalAdpfDisableTopAppBoost,
                                                              "ADPF_DISABLE_TA_BOOST")),
-          mHintManager(nullptr),
-          mDisplayRefreshRate(60),
-          mActive(false) {}
+          mActive(false),
+          mDisplayRefreshRate(60) {
+        mWakeupHandler = sp<WakeupHandler>(new WakeupHandler());
+    }
     PowerSessionManager(PowerSessionManager const &) = delete;
     void operator=(PowerSessionManager const &) = delete;
 };

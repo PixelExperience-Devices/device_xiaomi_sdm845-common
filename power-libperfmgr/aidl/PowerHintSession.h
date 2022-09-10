@@ -24,6 +24,8 @@
 #include <mutex>
 #include <unordered_map>
 
+#include "adaptivecpu/AdaptiveCpu.h"
+
 namespace aidl {
 namespace google {
 namespace hardware {
@@ -41,7 +43,6 @@ using std::chrono::nanoseconds;
 using std::chrono::steady_clock;
 using std::chrono::time_point;
 
-static const int32_t kMaxUclampValue = 1024;
 struct AppHintDesc {
     AppHintDesc(int32_t tgid, int32_t uid, std::vector<int> threadIds)
         : tgid(tgid),
@@ -69,8 +70,8 @@ struct AppHintDesc {
 
 class PowerHintSession : public BnPowerHintSession {
   public:
-    explicit PowerHintSession(int32_t tgid, int32_t uid, const std::vector<int32_t> &threadIds,
-                              int64_t durationNanos, nanoseconds adpfRate);
+    explicit PowerHintSession(std::shared_ptr<AdaptiveCpu> adaptiveCpu, int32_t tgid, int32_t uid,
+                              const std::vector<int32_t> &threadIds, int64_t durationNanos);
     ~PowerHintSession();
     ndk::ScopedAStatus close() override;
     ndk::ScopedAStatus pause() override;
@@ -79,36 +80,71 @@ class PowerHintSession : public BnPowerHintSession {
     ndk::ScopedAStatus reportActualWorkDuration(
             const std::vector<WorkDuration> &actualDurations) override;
     bool isActive();
-    bool isStale();
+    bool isTimeout();
+    void wakeup();
+    void setStale();
+    // Is this hint session for a user application
+    bool isAppSession();
     const std::vector<int> &getTidList() const;
+    int getUclampMin();
+    void dumpToStream(std::ostream &stream);
+
+    void updateWorkPeriod(const std::vector<WorkDuration> &actualDurations);
+    time_point<steady_clock> getEarlyBoostTime();
+    time_point<steady_clock> getStaleTime();
 
   private:
-    class StaleHandler : public MessageHandler {
+    class StaleTimerHandler : public MessageHandler {
       public:
-        StaleHandler(PowerHintSession *session)
-            : mSession(session), mIsMonitoringStale(false), mLastUpdatedTime(steady_clock::now()) {}
+        StaleTimerHandler(PowerHintSession *session)
+            : mSession(session), mIsMonitoring(false), mIsSessionDead(false) {}
+        void updateTimer();
+        void updateTimer(time_point<steady_clock> staleTime);
         void handleMessage(const Message &message) override;
-        void updateStaleTimer();
-        time_point<steady_clock> getStaleTime();
+        void setSessionDead();
 
       private:
         PowerHintSession *mSession;
-        std::atomic<bool> mIsMonitoringStale;
-        std::atomic<time_point<steady_clock>> mLastUpdatedTime;
         std::mutex mStaleLock;
+        std::mutex mMessageLock;
+        std::atomic<time_point<steady_clock>> mStaleTime;
+        std::atomic<bool> mIsMonitoring;
+        bool mIsSessionDead;
+    };
+
+    class EarlyBoostHandler : public MessageHandler {
+      public:
+        EarlyBoostHandler(PowerHintSession *session)
+            : mSession(session), mIsMonitoring(false), mIsSessionDead(false) {}
+        void updateTimer(time_point<steady_clock> boostTime);
+        void handleMessage(const Message &message) override;
+        void setSessionDead();
+
+      private:
+        PowerHintSession *mSession;
+        std::mutex mBoostLock;
+        std::mutex mMessageLock;
+        std::atomic<time_point<steady_clock>> mBoostTime;
+        std::atomic<bool> mIsMonitoring;
+        bool mIsSessionDead;
     };
 
   private:
-    void setStale();
     void updateUniveralBoostMode();
-    int setUclamp(int32_t min, int32_t max = kMaxUclampValue);
+    int setSessionUclampMin(int32_t min);
     std::string getIdString() const;
+    const std::shared_ptr<AdaptiveCpu> mAdaptiveCpu;
     AppHintDesc *mDescriptor = nullptr;
-    sp<StaleHandler> mStaleHandler;
+    sp<StaleTimerHandler> mStaleTimerHandler;
+    sp<EarlyBoostHandler> mEarlyBoostHandler;
+    std::atomic<time_point<steady_clock>> mLastUpdatedTime;
     sp<MessageHandler> mPowerManagerHandler;
-    std::mutex mLock;
-    const nanoseconds kAdpfRate;
+    std::mutex mSessionLock;
     std::atomic<bool> mSessionClosed = false;
+    // These 3 variables are for earlyboost work period estimation.
+    int64_t mLastStartedTimeNs;
+    int64_t mLastDurationNs;
+    int64_t mWorkPeriodNs;
 };
 
 }  // namespace pixel

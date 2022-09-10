@@ -18,13 +18,13 @@ package {
 }
 
 cc_library {
-    name: "libdisppower-xiaomi-sdm845",
+    name: "libdisppower-pixel",
     proprietary: true,
     srcs: [
         "disp-power/DisplayLowPower.cpp",
         "disp-power/InteractionHandler.cpp",
     ],
-     shared_libs: [
+    shared_libs: [
         "libbase",
         "libcutils",
         "liblog",
@@ -33,20 +33,85 @@ cc_library {
     ],
 }
 
+cc_library {
+    name: "libadaptivecpu",
+    proprietary: true,
+    vendor: true,
+    srcs: [
+        "adaptivecpu/AdaptiveCpu.cpp",
+        "adaptivecpu/AdaptiveCpuConfig.cpp",
+        "adaptivecpu/AdaptiveCpuStats.cpp",
+        "adaptivecpu/CpuFrequencyReader.cpp",
+        "adaptivecpu/CpuLoadReaderProcStat.cpp",
+        "adaptivecpu/CpuLoadReaderSysDevices.cpp",
+        "adaptivecpu/Device.cpp",
+        "adaptivecpu/KernelCpuFeatureReader.cpp",
+        "adaptivecpu/Model.cpp",
+        "adaptivecpu/RealFilesystem.cpp",
+        "adaptivecpu/ThrottleDecision.cpp",
+        "adaptivecpu/TimeSource.cpp",
+        "adaptivecpu/WorkDurationProcessor.cpp",
+    ],
+    shared_libs: [
+        "android.hardware.power-V3-ndk",
+        "libbase",
+        "liblog",
+        "libperfmgr",
+        "libutils",
+        "libcutils",
+    ],
+}
+
+cc_test {
+    name: "libadaptivecpu_test",
+    proprietary: true,
+    vendor: true,
+    srcs: [
+        "adaptivecpu/tests/AdaptiveCpuConfigTest.cpp",
+        "adaptivecpu/tests/AdaptiveCpuStatsTest.cpp",
+        "adaptivecpu/tests/CpuFrequencyReaderTest.cpp",
+        "adaptivecpu/tests/CpuLoadReaderProcStatTest.cpp",
+        "adaptivecpu/tests/CpuLoadReaderSysDevicesTest.cpp",
+        "adaptivecpu/tests/KernelCpuFeatureReaderTest.cpp",
+        "adaptivecpu/tests/ModelTest.cpp",
+        "adaptivecpu/tests/WorkDurationProcessorTest.cpp",
+    ],
+    static_libs: [
+        "libadaptivecpu",
+        "libgmock",
+        "android.hardware.power-V3-ndk",
+    ],
+    shared_libs: [
+        "liblog",
+        "libbase",
+        "libcutils",
+    ],
+    test_suites: ["device-tests"],
+}
+
+// Deprecated, do not use
+// Use pixel-power-ext for vendor extension
+cc_library_headers {
+    name: "pixel_power_headers",
+    vendor: true,
+    export_include_dirs: ["hidl"],
+}
+
 cc_binary {
-    name: "android.hardware.power-service.xiaomi-sdm845-libperfmgr",
+    name: "android.hardware.power-service.pixel-libperfmgr",
     relative_install_path: "hw",
-    init_rc: ["aidl/android.hardware.power-service.xiaomi-sdm845-libperfmgr.rc"],
-    vintf_fragments: ["aidl/android.hardware.power-service.xiaomi-sdm845.xml"],
+    init_rc: ["aidl/android.hardware.power-service.pixel-libperfmgr.rc"],
+    vintf_fragments: ["aidl/android.hardware.power-service.pixel.xml"],
     vendor: true,
     shared_libs: [
-        "android.hardware.power-V2-ndk",
+        "android.hardware.power-V3-ndk",
+        "libadaptivecpu",
         "libbase",
         "libcutils",
         "liblog",
         "libutils",
         "libbinder_ndk",
-        "libdisppower-xiaomi-sdm845",
+        "libdisppower-pixel",
         "libperfmgr",
         "libprocessgroup",
         "pixel-power-ext-V1-ndk",

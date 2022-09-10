@@ -14,22 +14,21 @@
  * limitations under the License.
  */
 
-#define ATRACE_TAG (ATRACE_TAG_POWER | ATRACE_TAG_HAL)
 #define LOG_TAG "android.hardware.power-service.pixel.ext-libperfmgr"
 
 #include "PowerExt.h"
-#include "PowerSessionManager.h"
-
-#include <mutex>
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 #include <android-base/stringprintf.h>
 #include <android-base/strings.h>
-
+#include <perfmgr/HintManager.h>
 #include <utils/Log.h>
-#include <utils/Trace.h>
+
+#include <mutex>
+
+#include "PowerSessionManager.h"
 
 namespace aidl {
 namespace google {
@@ -38,22 +37,31 @@ namespace power {
 namespace impl {
 namespace pixel {
 
+using ::android::perfmgr::HintManager;
+
 ndk::ScopedAStatus PowerExt::setMode(const std::string &mode, bool enabled) {
     LOG(DEBUG) << "PowerExt setMode: " << mode << " to: " << enabled;
-    ATRACE_INT(mode.c_str(), enabled);
 
     if (enabled) {
-        mHintManager->DoHint(mode);
+        HintManager::GetInstance()->DoHint(mode);
     } else {
-        mHintManager->EndHint(mode);
+        HintManager::GetInstance()->EndHint(mode);
     }
-    PowerSessionManager::getInstance()->updateHintMode(mode, enabled);
+    if (HintManager::GetInstance()->GetAdpfProfile() &&
+        HintManager::GetInstance()->GetAdpfProfile()->mReportingRateLimitNs > 0) {
+        PowerSessionManager::getInstance()->updateHintMode(mode, enabled);
+    }
+
+    if (mode == AdaptiveCpu::HINT_NAME) {
+        LOG(DEBUG) << "AdaptiveCpu intercepted hint";
+        mAdaptiveCpu->HintReceived(enabled);
+    }
 
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus PowerExt::isModeSupported(const std::string &mode, bool *_aidl_return) {
-    bool supported = mHintManager->IsHintSupported(mode);
+    bool supported = HintManager::GetInstance()->IsHintSupported(mode);
     LOG(INFO) << "PowerExt mode " << mode << " isModeSupported: " << supported;
     *_aidl_return = supported;
     return ndk::ScopedAStatus::ok();
@@ -61,21 +69,24 @@ ndk::ScopedAStatus PowerExt::isModeSupported(const std::string &mode, bool *_aid
 
 ndk::ScopedAStatus PowerExt::setBoost(const std::string &boost, int32_t durationMs) {
     LOG(DEBUG) << "PowerExt setBoost: " << boost << " duration: " << durationMs;
-    ATRACE_INT(boost.c_str(), durationMs);
+    if (HintManager::GetInstance()->GetAdpfProfile() &&
+        HintManager::GetInstance()->GetAdpfProfile()->mReportingRateLimitNs > 0) {
+        PowerSessionManager::getInstance()->updateHintBoost(boost, durationMs);
+    }
 
     if (durationMs > 0) {
-        mHintManager->DoHint(boost, std::chrono::milliseconds(durationMs));
+        HintManager::GetInstance()->DoHint(boost, std::chrono::milliseconds(durationMs));
     } else if (durationMs == 0) {
-        mHintManager->DoHint(boost);
+        HintManager::GetInstance()->DoHint(boost);
     } else {
-        mHintManager->EndHint(boost);
+        HintManager::GetInstance()->EndHint(boost);
     }
 
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus PowerExt::isBoostSupported(const std::string &boost, bool *_aidl_return) {
-    bool supported = mHintManager->IsHintSupported(boost);
+    bool supported = HintManager::GetInstance()->IsHintSupported(boost);
     LOG(INFO) << "PowerExt boost " << boost << " isBoostSupported: " << supported;
     *_aidl_return = supported;
     return ndk::ScopedAStatus::ok();
