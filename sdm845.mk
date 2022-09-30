@@ -108,7 +108,6 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor \
     android.hardware.bluetooth.audio@2.0-impl:32 \
     audio.bluetooth.default \
-    libbthost_if \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor
 
 PRODUCT_COPY_FILES += \
@@ -167,7 +166,6 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     libqdMetaData.system \
     libtinyxml \
-    libtinyxml.vendor \
     libvulkan \
     vendor.display.config@1.0.vendor \
     vendor.display.config@2.0 \
@@ -379,7 +377,6 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0 \
     android.hardware.radio.deprecated@1.0.vendor \
     libjson \
-    libjson.vendor \
     librmnetctl
 
 # RenderScript
