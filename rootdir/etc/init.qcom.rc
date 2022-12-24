@@ -653,6 +653,16 @@ service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
 
+service vendor.thermal-hal-2-0 /vendor/bin/hw/android.hardware.thermal@2.0-service.pixel
+    override
+    interface android.hardware.thermal@1.0::IThermal default
+    interface android.hardware.thermal@2.0::IThermal default
+    class hal
+    user system
+    group system
+    priority -20
+    disabled
+
 service ppd /vendor/bin/mm-pp-dpps
     class late_start
     user system
