@@ -10,9 +10,6 @@ ro.config.vc_call_vol_steps=11
 camera.disable_zsl_mode=true
 vendor.camera.aux.packagelist=com.android.camera,org.pixelexperience.faceunlock,org.lineageos.aperture
 
-# Charger
-ro.charger.enable_suspend=true
-
 # CNE
 persist.vendor.cne.feature=1
 
