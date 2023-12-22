@@ -173,7 +173,8 @@ PRODUCT_PACKAGES += \
     vendor.display.config@2.0 \
     vendor.display.config@2.0.vendor \
     memtrack.sdm845 \
-    vendor.qti.hardware.display.allocator@1.0-service
+    vendor.qti.hardware.display.allocator@1.0-service \
+    vendor.qti.hardware.display.config-V5-ndk
 
 # DRM
 PRODUCT_PACKAGES += \
